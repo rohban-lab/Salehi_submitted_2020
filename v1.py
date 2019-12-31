@@ -318,4 +318,4 @@ if __name__ == '__main__':
 
     main(args.gpu_id, args.data_path, args.checkpoint_path,
         args.class_number, args.learning_rate, args.num_steps,
-        args.batch_size, args.coef, args.kernel_size, args.stride):
+        args.batch_size, args.coef, args.kernel_size, args.stride)
