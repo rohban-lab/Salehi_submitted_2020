@@ -35,3 +35,13 @@ Having decided about the arguments, the script can be run like below:
 ```
 python v1.py --gpu_id "1" -l 0.0001
 ```
+
+Note: To submit a task on HPC, all you need to do is to call run.sh. It will be run v1.py using HPC's GPU.
+
+```
+qsub run.sh
+```
+
+
+
+
