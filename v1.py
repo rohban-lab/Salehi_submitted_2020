@@ -36,7 +36,7 @@ def crop(dimension, start, end):
     return keras.layers.Lambda(func)
 
 
-def find_delta(model, images, epsilon, learning_rate, steps):
+def find_delta(model, images, epsilon, learning_rate, steps, coef):
     loss = K.square(model.get_layer('output').get_output_at(0) - model.get_layer('input').get_input_at(1)) \
            + coef * K.square(model.get_layer('latent').get_output_at(0) - model.get_layer('latent').get_output_at(1))
     loss = K.mean(loss, axis=(-1, -2, -3))
@@ -154,7 +154,7 @@ def draw_pca():
 
 
 
-def build_model():
+def build_model(kernel_size, stride, coef):
 
     inp = keras.layers.Input(shape=(2, 61, 61, 1))
 
@@ -264,7 +264,7 @@ def main(gpu_id, data_path, checkpoint_path, class_number, learning_rate,
     mnist = input_data.read_data_sets(data_path, one_hot=False)
     digitDict = {}
 
-    model = build_model()
+    model = build_model(kernel_size, stride, coef)
 
     # What is it doing?
     for i in range(10):
@@ -292,10 +292,10 @@ def main(gpu_id, data_path, checkpoint_path, class_number, learning_rate,
         input = np.ndarray((5389,2,61,61,1))
 
         data = resized_dataset[0:3000]
-        input[0:3000] = find_delta(model, data.reshape((3000,61,61,1)), 0.2, 0.005, 40)
+        input[0:3000] = find_delta(model, data.reshape((3000,61,61,1)), 0.2, learning_rate, 40, coef)
 
         data = resized_dataset[3000:5389]
-        input[3000:5389] = find_delta(model, data.reshape((2389,61,61,1)), 0.2, 0.005, 40)
+        input[3000:5389] = find_delta(model, data.reshape((2389,61,61,1)), 0.2, learning_rate, 40, coef)
 
         model.fit(x=input, y=resized_dataset, batch_size=batch_size, epochs=1, callbacks=[cp_callback], verbose=1)
 
@@ -308,7 +308,7 @@ if __name__ == '__main__':
     parser.add_argument("-d", "--data_path", default = "MNIST_data{}".format(os.sep), help = 'path to dataset')
     parser.add_argument("-c", "--checkpoint_path", default = "large_latent{}weights.hdf5".format(os.sep), help = "the address in which the model is going to be saved.")
     parser.add_argument("-n", "--class_number", default = 8, type = int, help = "choose normal class")
-    parser.add_argument("-l", "--learning_rate", default = 0.001, type = float, help = "learning rate")
+    parser.add_argument("-l", "--learning_rate", default = 0.005, type = float, help = "learning rate")
     parser.add_argument("-s", "--num_steps", default = 100, type = int, help = "number of epochs")
     parser.add_argument("-b", "--batch_size", default = 256, type = int, help = "mini batch size")
     parser.add_argument("-k", "--coef", default = 0.1, type = float, help = "setting coeficient in error function to control the effect of adverserial attack")
