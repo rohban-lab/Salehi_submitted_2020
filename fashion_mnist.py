@@ -12,6 +12,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import os
+import argparse
+
 
 
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
@@ -36,7 +38,7 @@ def crop(dimension, start, end):
     return keras.layers.Lambda(func)
 
 
-def find_delta(model, images, epsilon, learning_rate, steps):
+def find_delta(model, images, epsilon, learning_rate, steps, coef):
 
     latent_function = K.function([model.get_layer('input').get_input_at(0)],
                                  [model.get_layer('latent').get_output_at(0)])
@@ -128,7 +130,7 @@ def train(dataset, batch_size, coef, class_number, epoch, epsilon, steps):
 
     for i in range(epoch):
         print('step: {}'.format(i))
-        attack_images, images = find_delta(model, dataset, epsilon, 2.5 * epsilon / steps, steps)
+        attack_images, images = find_delta(model, dataset, epsilon, 2.5 * epsilon / steps, steps, coef)
 
         model.fit(x=np.concatenate((attack_images, images), axis=-1), y=images, batch_size=batch_size, epochs=1,
                   callbacks=[cp_callback], verbose=2)
@@ -141,7 +143,7 @@ def train_categories(data, epoch, batch_size, coef, epsilon, steps):
 
     digitDict = {}
 
-    for i in len(class_names):
+    for i in range(len(class_names)):
         mask = (data.train.labels == i)
         digitDict[i] = data.train.images[mask]
 
@@ -155,16 +157,17 @@ def train_categories(data, epoch, batch_size, coef, epsilon, steps):
 
 
 
-def main(epoch, batch_size, coef, gpu_id, epsilon, steps):
+def main(epoch, batch_size, coef, gpu_id, epsilon, steps, data_path):
 
-    data = input_data.read_data_sets('./fashion_mnist', source_url='http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/')
+    data = input_data.read_data_sets(data_path, source_url = 'http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/')
+
+
 
     if gpu_id != '-1':
-
         os.environ["CUDA_VISIBLE_DEVICES"] = gpu_id
         config = tf.ConfigProto()
         config.gpu_options.allow_growth = True
-        session = tf.Session(config=config)
+        session = tf.Session(config = config)
 
     train_categories(data, epoch, batch_size, coef, epsilon, steps)
 
@@ -173,7 +176,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description="Trains AE using adverserial objective function")
     parser.add_argument("-g", "--gpu_id", default = '-1', type = str, help="determines gpu id")
-    parser.add_argument("-d", "--data_path", default = "MNIST_data{}".format(os.sep), help = 'path to dataset')
+    parser.add_argument("-d", "--data_path", default = ".{}fashion_mnist".format(os.sep), help = 'path to dataset')
     parser.add_argument("-c", "--checkpoint_path", default = "large_latent{}weights.hdf5".format(os.sep), help = "the address in which the model is going to be saved.")
     parser.add_argument("-e", "--epoch", default = 700, type = int, help = "number of epochs")
     parser.add_argument("-b", "--batch_size", default = 256, type = int, help = "mini batch size")
@@ -184,4 +187,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
 
-    main(args.epoch, args.batch_size, args.coef, args.gpu_id, args.epsilon, args.steps)
+    main(args.epoch, args.batch_size, args.coef, args.gpu_id, args.epsilon, args.steps, args.data_path)
