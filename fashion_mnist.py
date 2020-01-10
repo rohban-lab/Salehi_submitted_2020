@@ -139,7 +139,7 @@ def train(dataset, batch_size, coef, class_number, epoch, epsilon, steps):
 
 
 
-def train_categories(data, epoch, batch_size, coef, epsilon, steps):
+def train_categories(data, epoch, batch_size, coef, epsilon, steps, classes):
 
     digitDict = {}
 
@@ -147,8 +147,12 @@ def train_categories(data, epoch, batch_size, coef, epsilon, steps):
         mask = (data.train.labels == i)
         digitDict[i] = data.train.images[mask]
 
+    if classes != -1:
+        enu_classes = [class_names[classes]]
+    else:
+        enu_classes = class_names
 
-    for cat, cat_name in enumerate(class_names):
+    for cat, cat_name in enumerate(enu_classes):
         print("Training on {} started".format(cat_name))
         mask = data.train.labels == cat
         dataset = data.train.images[mask]
@@ -157,11 +161,9 @@ def train_categories(data, epoch, batch_size, coef, epsilon, steps):
 
 
 
-def main(epoch, batch_size, coef, gpu_id, epsilon, steps, data_path):
+def main(epoch, batch_size, coef, gpu_id, epsilon, steps, data_path, classes):
 
     data = input_data.read_data_sets(data_path, source_url = 'http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/')
-
-
 
     if gpu_id != '-1':
         os.environ["CUDA_VISIBLE_DEVICES"] = gpu_id
@@ -169,7 +171,7 @@ def main(epoch, batch_size, coef, gpu_id, epsilon, steps, data_path):
         config.gpu_options.allow_growth = True
         session = tf.Session(config = config)
 
-    train_categories(data, epoch, batch_size, coef, epsilon, steps)
+    train_categories(data, epoch, batch_size, coef, epsilon, steps, classes)
 
 
 if __name__ == '__main__':
@@ -183,8 +185,9 @@ if __name__ == '__main__':
     parser.add_argument("-k", "--coef", default = 0.1, type = float, help = "setting coeficient in error function to control the effect of adverserial attack")
     parser.add_argument("-p", "--epsilon", default = 0.2, type = float, help = "epsilon")
     parser.add_argument("-s", "--steps", default = 40, type = int, help = "steps")
+    parser.add_argument("-l", "--classes", default = -1, type = int, help = "determines category on which you intend to train a model")
 
     args = parser.parse_args()
 
 
-    main(args.epoch, args.batch_size, args.coef, args.gpu_id, args.epsilon, args.steps, args.data_path)
+    main(args.epoch, args.batch_size, args.coef, args.gpu_id, args.epsilon, args.steps, args.data_path, args.classes)
