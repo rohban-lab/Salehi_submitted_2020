@@ -114,10 +114,10 @@ def build_model(coef):
 
 def train(dataset, batch_size, coef, class_number, epoch, epsilon, steps):
 
-    checkpoint_path = str(class_number) + os.sep + "weights.hdf5"
+    checkpoint_path = str(class_names[class_number].replace(os.sep, '_')) + os.sep + "weights.hdf5"
 
-    if not(os.path.isdir(str(class_number))):
-        os.mkdir(str(class_number))
+    if not(os.path.isdir(str(class_names[class_number].replace(os.sep, '_')))):
+        os.mkdir(str(class_names[class_number].replace(os.sep, '_')))
     checkpoint_dir = os.path.dirname(checkpoint_path)
 
     model = build_model(coef)
