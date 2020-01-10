@@ -5,6 +5,8 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.examples.tutorials.mnist import input_data
 from tensorflow.keras import backend as K
+#from fastprogress.fastprogress import master_bar, progress_bar
+
 
 
 # Helper libraries
@@ -13,7 +15,7 @@ import matplotlib.pyplot as plt
 
 import os
 import argparse
-
+import json
 
 
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
@@ -57,25 +59,25 @@ def find_delta(model, images, epsilon, learning_rate, steps, coef):
 
     delta = np.random.random((images.shape[0], 784)) * 2 * epsilon - epsilon
 
-    for step in range(steps):
-        attack_images = images + delta
-        attack_images = np.clip(attack_images, 0, 1)
+#     for step in range(steps):
+#         attack_images = images + delta
+#         attack_images = np.clip(attack_images, 0, 1)
 
-        loss_val = loss_function([attack_images, latent_images])[0]
+#         loss_val = loss_function([attack_images, latent_images])[0]
 
-        output = gradient_function([attack_images, latent_images])[0]
+#         output = gradient_function([attack_images, latent_images])[0]
 
-        delta = delta + learning_rate * np.sign(output)
+#         delta = delta + learning_rate * np.sign(output)
 
-        indices = np.nonzero(delta > epsilon)
-        delta[indices[0], indices[1]] = epsilon
+#         indices = np.nonzero(delta > epsilon)
+#         delta[indices[0], indices[1]] = epsilon
 
-        indices = np.nonzero(delta < -epsilon)
-        delta[indices[0], indices[1]] = -epsilon
+#         indices = np.nonzero(delta < -epsilon)
+#         delta[indices[0], indices[1]] = -epsilon
 
     attack_images = images + delta
     attack_images = np.clip(attack_images, 0, 1)
-    print(np.average(loss_val))
+    #print(np.average(loss_val))
     return np.array(attack_images), np.array(images)
 
 
@@ -118,24 +120,28 @@ def train(dataset, batch_size, coef, class_number, epoch, epsilon, steps):
 
     if not(os.path.isdir(str(class_names[class_number].replace(os.sep, '_')))):
         os.mkdir(str(class_names[class_number].replace(os.sep, '_')))
-    checkpoint_dir = os.path.dirname(checkpoint_path)
-
+        
     model = build_model(coef)
 
-
-
-    cp_callback = keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
-                                                  save_weights_only=True,
-                                                  verbose=1)
-
     for i in range(epoch):
-        print('step: {}'.format(i))
+
+        cp_callback = keras.callbacks.ModelCheckpoint(filepath = checkpoint_path + '.' + str(epoch),
+                                                      save_weights_only = True,
+                                                      verbose = 0,
+                                                      monitor = 'val_loss',
+                                                      save_best_only = False,
+                                                      mode='min')
+
         attack_images, images = find_delta(model, dataset, epsilon, 2.5 * epsilon / steps, steps, coef)
 
-        model.fit(x=np.concatenate((attack_images, images), axis=-1), y=images, batch_size=batch_size, epochs=1,
-                  callbacks=[cp_callback], verbose=2)
-
-
+        out = model.fit(x=np.concatenate((attack_images, images), axis = -1), validation_split = 0.2, y = images, batch_size = batch_size, epochs = 30, callbacks = [cp_callback], verbose = 0)
+        print("epoch:{} *** training loss:{} *** validation loss:{}".format(i, np.average(out.history['loss']), np.average(out.history['val_loss'])))
+        f = open(str(class_names[class_number].replace(os.sep, '_')) + os.sep + "log.txt", "a")
+        f.write("epoch:{} *** training loss:{} *** validation loss:{}\n".format(i, np.average(out.history['loss']), np.average(out.history['val_loss'])))
+        f.write("\n******************************\n")
+        f.write(json.dumps(out.history))
+        f.write("\n******************************\n")
+        f.close()
 
 
 
@@ -172,6 +178,7 @@ def main(epoch, batch_size, coef, gpu_id, epsilon, steps, data_path, classes):
         session = tf.Session(config = config)
 
     train_categories(data, epoch, batch_size, coef, epsilon, steps, classes)
+
 
 
 if __name__ == '__main__':
