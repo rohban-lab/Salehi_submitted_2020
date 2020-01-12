@@ -94,11 +94,15 @@ def build_model(coef):
     aux_inp = crop(1, 784, 1568)(inp)
     noise = keras.layers.GaussianNoise(0, input_shape=(784,))
     l1 = keras.layers.Dense(512, activation = 'sigmoid', kernel_initializer = 'glorot_normal', name='input')
+    dropout_1 = keras.layers.Dropout(0.25)
     l2 = keras.layers.Dense(256, activation = 'sigmoid', kernel_initializer = 'glorot_normal')
+    dropout_2 = keras.layers.Dropout(0.25)
     z = keras.layers.Dense(128, activation = 'sigmoid', kernel_initializer = 'glorot_normal', name='latent')
     adelta1 = noise(main_inp)
-    adelta2 = l1(adelta1)
-    adelta3 = l2(adelta2)
+    #adelta2 = l1(adelta1)
+    adelta2 = dropout_1(l1(adelta1))
+    #adelta3 = l2(adelta2)
+    adelta3 = dropout_2(l2(adelta2))
     zdelta = z(adelta3)
     a1 = noise(aux_inp)
     a2 = l1(a1)
@@ -106,9 +110,11 @@ def build_model(coef):
     z1 = z(a3)
     d1 = keras.layers.Dense(256, activation = 'sigmoid', kernel_initializer='glorot_normal')(zdelta)
     d2 = keras.layers.Dense(512, activation = 'sigmoid', kernel_initializer='glorot_normal')(d1)
+    d2 = keras.layers.Dropout(0.25)(d2)
     d3 = keras.layers.Dense(784, activation = 'sigmoid', kernel_initializer='glorot_normal', name = 'output')(d2)
     model = keras.models.Model(inp, d3)
     model.compile(optimizer = 'adam', loss = attack_loss(coef, z1, zdelta), metrics = [],)
+
     return model
 
 
