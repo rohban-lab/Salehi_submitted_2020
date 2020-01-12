@@ -4,7 +4,7 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.examples.tutorials.mnist import input_data
 from tensorflow.keras import backend as K
-
+from sklearn.metrics import roc_auc_score, roc_curve, auc
 
 
 # Helper libraries
@@ -112,9 +112,30 @@ def build_model(coef):
     return model
 
 
-def train(dataset, batch_size, coef, class_number, epoch, epsilon, steps, cat_name):
+def compute_auc(model, cat_name, data, epsilon, steps, coef):
 
-    checkpoint_path = cat_name.replace(os.sep, '_') + os.sep + "weights.hdf5"
+    normal_indx = [i for i, cat in enumerate(class_names) if cat == cat_name][0]
+
+    inputs = data.test.images
+    labels = data.test.labels
+    attack_images, images = find_delta(model, inputs, epsilon, 2.5 * epsilon / steps, steps, coef)
+    outputs = model.predict(x=np.concatenate((attack_images, images), axis = -1))
+    scores = K.eval(K.mean(K.square(images - outputs), axis=-1))
+    labels_normal = [1 if label == normal_indx else 0 for label in labels]
+    fpr, tpr, thresholds = roc_curve(labels_normal, scores, pos_label=0)
+    roc_auc = auc(fpr, tpr)
+
+    np.savetxt(cat_name.replace(os.sep, '_') + os.sep + "fpr.txt", fpr)
+    np.savetxt(cat_name.replace(os.sep, '_') + os.sep + "tpr.txt", tpr)
+    np.savetxt(cat_name.replace(os.sep, '_') + os.sep + "thresholds.txt", thresholds)
+    np.savetxt(cat_name.replace(os.sep, '_') + os.sep + "scores.txt", scores)
+
+    f = open(cat_name.replace(os.sep, '_') + os.sep + "AUC.txt", "a")
+    f.write("AUC:{}".format(roc_auc))
+    f.close()
+
+def train(dataset, batch_size, coef, epoch, epsilon, steps, cat_name, data):
+
 
     if not(os.path.isdir(cat_name.replace(os.sep, '_'))):
         os.mkdir(cat_name.replace(os.sep, '_'))
@@ -123,44 +144,46 @@ def train(dataset, batch_size, coef, class_number, epoch, epsilon, steps, cat_na
 
     for i in range(epoch):
 
-        cp_callback = keras.callbacks.ModelCheckpoint(filepath = checkpoint_path + '.' + str(i),
+        checkpoint_path = cat_name.replace(os.sep, '_') + os.sep + str(i) + '.' + "weights.hdf5"
+
+        cp_callback = keras.callbacks.ModelCheckpoint(filepath = checkpoint_path,
                                                       save_weights_only = True,
                                                       verbose = 0,
                                                       monitor = 'val_loss',
-                                                      save_best_only = False,
+                                                      save_best_only = True,
                                                       mode='min')
 
         attack_images, images = find_delta(model, dataset, epsilon, 2.5 * epsilon / steps, steps, coef)
 
-        out = model.fit(x=np.concatenate((attack_images, images), axis = -1), validation_split = 0.2, y = images, batch_size = batch_size, epochs = 50, callbacks = [cp_callback], verbose = 0)
+        out = model.fit(x=np.concatenate((attack_images, images), axis = -1), validation_split = 0.2, y = images, batch_size = batch_size, epochs = 1, callbacks = [cp_callback], verbose = 0)
         print("epoch:{} *** training loss:{} *** validation loss:{}".format(i, np.average(out.history['loss']), np.average(out.history['val_loss'])))
-        f = open(str(class_names[class_number].replace(os.sep, '_')) + os.sep + "log.txt", "a")
+        f = open(cat_name.replace(os.sep, '_') + os.sep + "log.txt", "a")
         f.write("epoch:{} *** training loss:{} *** validation loss:{}\n".format(i, np.average(out.history['loss']), np.average(out.history['val_loss'])))
         f.write("\n******************************\n")
         f.write(json.dumps(out.history))
         f.write("\n******************************\n")
         f.close()
 
+    compute_auc(model, cat_name, data, epsilon, steps, coef)
+
 
 
 def train_categories(data, epoch, batch_size, coef, epsilon, steps, classes):
 
-    digitDict = {}
 
-    for i in range(len(class_names)):
-        mask = (data.train.labels == i)
-        digitDict[i] = data.train.images[mask]
-
-    if classes != -1:
-        enu_classes = [class_names[classes]]
-    else:
-        enu_classes = class_names
-
-    for cat, cat_name in enumerate(enu_classes):
-        print("Training on {} started".format(cat_name))
-        mask = data.train.labels == cat
-        dataset = data.train.images[mask]
-        train(dataset, batch_size, coef, cat, epoch, epsilon, steps, cat_name)
+    for cat, cat_name in enumerate(class_names):
+        if (classes != -1) and (cat == classes):
+            print("Training on {} started".format(cat_name))
+            mask = data.train.labels == cat
+            dataset = data.train.images[mask]
+            print("Number of training samples: {}".format(len(dataset)))
+            train(dataset, batch_size, coef, epoch, epsilon, steps, cat_name, data)
+        elif classes == -1:
+            print("Training on {} started".format(cat_name))
+            mask = data.train.labels == cat
+            dataset = data.train.images[mask]
+            print("Number of training samples: {}".format(len(dataset)))
+            train(dataset, batch_size, coef, epoch, epsilon, steps, cat_name, data)
 
 
 
