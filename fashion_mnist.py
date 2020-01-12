@@ -19,6 +19,8 @@ import json
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
+
+
 def crop(dimension, start, end):
     # Crops (or slices) a Tensor on a given dimension from start to end
     # example : to crop tensor x[:, :, 5:10]
@@ -124,8 +126,8 @@ def compute_auc(model, cat_name, data, epsilon, steps, coef):
 
     inputs = data.test.images
     labels = data.test.labels
-    attack_images, images = find_delta(model, inputs, epsilon, 2.5 * epsilon / steps, steps, coef)
-    outputs = model.predict(x=np.concatenate((attack_images, images), axis = -1))
+    #attack_images, images = find_delta(model, inputs, epsilon, 2.5 * epsilon / steps, steps, coef)
+    outputs = model.predict(x=np.concatenate((images, images), axis = -1))
     scores = K.eval(K.mean(K.square(images - outputs), axis=-1))
     labels_normal = [1 if label == normal_indx else 0 for label in labels]
     fpr, tpr, thresholds = roc_curve(labels_normal, scores, pos_label=0)
@@ -143,14 +145,15 @@ def compute_auc(model, cat_name, data, epsilon, steps, coef):
 def train(dataset, batch_size, coef, epoch, epsilon, steps, cat_name, data):
 
 
-    if not(os.path.isdir(cat_name.replace(os.sep, '_'))):
-        os.mkdir(cat_name.replace(os.sep, '_'))
+    main_path = cat_name.replace(os.sep, '_')
+    if not(os.path.isdir(main_path)):
+        os.mkdir(main_path)
 
     model = build_model(coef)
 
     for i in range(epoch):
 
-        checkpoint_path = cat_name.replace(os.sep, '_') + os.sep + str(i) + '.' + "weights.hdf5"
+        checkpoint_path = main_path + os.sep + str(i) + '.' + "weights.hdf5"
 
         cp_callback = keras.callbacks.ModelCheckpoint(filepath = checkpoint_path,
                                                       save_weights_only = True,
@@ -163,7 +166,7 @@ def train(dataset, batch_size, coef, epoch, epsilon, steps, cat_name, data):
 
         out = model.fit(x=np.concatenate((attack_images, images), axis = -1), validation_split = 0.2, y = images, batch_size = batch_size, epochs = 1, callbacks = [cp_callback], verbose = 0)
         print("epoch:{} *** training loss:{} *** validation loss:{}".format(i, np.average(out.history['loss']), np.average(out.history['val_loss'])))
-        f = open(cat_name.replace(os.sep, '_') + os.sep + "log.txt", "a")
+        f = open(main_path + os.sep + "log.txt", "a")
         f.write("epoch:{} *** training loss:{} *** validation loss:{}\n".format(i, np.average(out.history['loss']), np.average(out.history['val_loss'])))
         f.write("\n******************************\n")
         f.write(json.dumps(out.history))
@@ -171,7 +174,6 @@ def train(dataset, batch_size, coef, epoch, epsilon, steps, cat_name, data):
         f.close()
 
     compute_auc(model, cat_name, data, epsilon, steps, coef)
-
 
 
 def train_categories(data, epoch, batch_size, coef, epsilon, steps, classes):
