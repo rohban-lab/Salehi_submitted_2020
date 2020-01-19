@@ -96,15 +96,11 @@ def build_model(coef):
     aux_inp = crop(1, 784, 1568)(inp)
     noise = keras.layers.GaussianNoise(0, input_shape=(784,))
     l1 = keras.layers.Dense(512, activation = 'sigmoid', kernel_initializer = 'glorot_normal', name='input')
-    dropout_1 = keras.layers.Dropout(0.25)
     l2 = keras.layers.Dense(256, activation = 'sigmoid', kernel_initializer = 'glorot_normal')
-    dropout_2 = keras.layers.Dropout(0.25)
     z = keras.layers.Dense(128, activation = 'sigmoid', kernel_initializer = 'glorot_normal', name='latent')
     adelta1 = noise(main_inp)
-    #adelta2 = l1(adelta1)
-    adelta2 = dropout_1(l1(adelta1))
-    #adelta3 = l2(adelta2)
-    adelta3 = dropout_2(l2(adelta2))
+    adelta2 = l1(adelta1)
+    adelta3 = l2(adelta2)
     zdelta = z(adelta3)
     a1 = noise(aux_inp)
     a2 = l1(a1)
@@ -112,7 +108,6 @@ def build_model(coef):
     z1 = z(a3)
     d1 = keras.layers.Dense(256, activation = 'sigmoid', kernel_initializer='glorot_normal')(zdelta)
     d2 = keras.layers.Dense(512, activation = 'sigmoid', kernel_initializer='glorot_normal')(d1)
-    d2 = keras.layers.Dropout(0.25)(d2)
     d3 = keras.layers.Dense(784, activation = 'sigmoid', kernel_initializer='glorot_normal', name = 'output')(d2)
     model = keras.models.Model(inp, d3)
     model.compile(optimizer = 'adam', loss = attack_loss(coef, z1, zdelta), metrics = [],)
@@ -127,8 +122,8 @@ def compute_auc(model, cat_name, data, epsilon, steps, coef):
     inputs = data.test.images
     labels = data.test.labels
     #attack_images, images = find_delta(model, inputs, epsilon, 2.5 * epsilon / steps, steps, coef)
-    outputs = model.predict(x=np.concatenate((images, images), axis = -1))
-    scores = K.eval(K.mean(K.square(images - outputs), axis=-1))
+    outputs = model.predict(x = np.concatenate((inputs, inputs), axis = -1))
+    scores = K.eval(K.mean(K.square(inputs - outputs), axis=-1))
     labels_normal = [1 if label == normal_indx else 0 for label in labels]
     fpr, tpr, thresholds = roc_curve(labels_normal, scores, pos_label=0)
     roc_auc = auc(fpr, tpr)
@@ -180,13 +175,13 @@ def train_categories(data, epoch, batch_size, coef, epsilon, steps, classes):
 
 
     for cat, cat_name in enumerate(class_names):
-        if (classes != -1) and (cat == classes):
+        if (classes[0] != -1) and (cat in classes):
             print("Training on {} started".format(cat_name))
             mask = data.train.labels == cat
             dataset = data.train.images[mask]
             print("Number of training samples: {}".format(len(dataset)))
             train(dataset, batch_size, coef, epoch, epsilon, steps, cat_name, data)
-        elif classes == -1:
+        elif classes[0] == -1:
             print("Training on {} started".format(cat_name))
             mask = data.train.labels == cat
             dataset = data.train.images[mask]
@@ -221,7 +216,7 @@ if __name__ == '__main__':
     parser.add_argument("-k", "--coef", default = 0.1, type = float, help = "setting coeficient in error function to control the effect of adverserial attack")
     parser.add_argument("-p", "--epsilon", default = 0.2, type = float, help = "epsilon")
     parser.add_argument("-s", "--steps", default = 40, type = int, help = "steps")
-    parser.add_argument("-l", "--classes", default = -1, type = int, help = "determines category on which you intend to train a model")
+    parser.add_argument("-l", "--classes", nargs = '+', default = [-1], type = int, help = "determines category on which you intend to train a model")
 
     args = parser.parse_args()
     main(args.epoch, args.batch_size, args.coef, args.gpu_id, args.epsilon, args.steps, args.data_path, args.classes)

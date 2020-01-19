@@ -15,10 +15,8 @@ import os
 import argparse
 import json
 
-
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
-
 
 
 def crop(dimension, start, end):
@@ -175,13 +173,13 @@ def train_categories(data, epoch, batch_size, coef, epsilon, steps, classes):
 
 
     for cat, cat_name in enumerate(class_names):
-        if (classes != -1) and (cat == classes):
+        if (classes[0] != -1) and (cat in classes):
             print("Training on {} started".format(cat_name))
             mask = data.train.labels == cat
             dataset = data.train.images[mask]
             print("Number of training samples: {}".format(len(dataset)))
             train(dataset, batch_size, coef, epoch, epsilon, steps, cat_name, data)
-        elif classes == -1:
+        elif classes[0] == -1:
             print("Training on {} started".format(cat_name))
             mask = data.train.labels == cat
             dataset = data.train.images[mask]
@@ -216,7 +214,7 @@ if __name__ == '__main__':
     parser.add_argument("-k", "--coef", default = 0.1, type = float, help = "setting coeficient in error function to control the effect of adverserial attack")
     parser.add_argument("-p", "--epsilon", default = 0.2, type = float, help = "epsilon")
     parser.add_argument("-s", "--steps", default = 40, type = int, help = "steps")
-    parser.add_argument("-l", "--classes", default = -1, type = int, help = "determines category on which you intend to train a model")
+    parser.add_argument("-l", "--classes", nargs = '+', default = [-1], type = int, help = "determines category on which you intend to train a model")
 
     args = parser.parse_args()
     main(args.epoch, args.batch_size, args.coef, args.gpu_id, args.epsilon, args.steps, args.data_path, args.classes)
