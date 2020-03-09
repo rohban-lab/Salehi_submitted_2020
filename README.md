@@ -5,6 +5,9 @@ This repository contains code to reproduce the main experiments of our paper "AR
 
 Also, you can find our pre-trained models and our final results.
 
+![ARAE vs DAE](/MNIST-union/images/ARAEvsDAE.png)
+Format: ![Alt Text](url)
+
 <!--
 Here, we can provide the link to our paper, and we can write authors list.
 
