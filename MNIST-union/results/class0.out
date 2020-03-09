@@ -1,0 +1,1503 @@
+0
+0
+1 loss: 0.07836
+1 validation loss: 57.46769
+auc: 0.90130
+2 loss: 0.06318
+2 validation loss: 57.40804
+auc: 0.91760
+3 loss: 0.06030
+3 validation loss: 50.30950
+auc: 0.94037
+4 loss: 0.05553
+4 validation loss: 43.86914
+auc: 0.97279
+5 loss: 0.05204
+5 validation loss: 41.09334
+auc: 0.96026
+6 loss: 0.04768
+6 validation loss: 40.17847
+auc: 0.96080
+7 loss: 0.04517
+7 validation loss: 37.18065
+auc: 0.97164
+8 loss: 0.04358
+8 validation loss: 35.55458
+auc: 0.97485
+9 loss: 0.04283
+9 validation loss: 34.73961
+auc: 0.96218
+10 loss: 0.04198
+10 validation loss: 36.15291
+auc: 0.96892
+11 loss: 0.04140
+11 validation loss: 35.93892
+auc: 0.96011
+12 loss: 0.04105
+12 validation loss: 33.24897
+auc: 0.97635
+13 loss: 0.03966
+13 validation loss: 31.24732
+auc: 0.97618
+14 loss: 0.03839
+14 validation loss: 30.86145
+auc: 0.97835
+15 loss: 0.03822
+15 validation loss: 29.62950
+auc: 0.97728
+16 loss: 0.03727
+16 validation loss: 29.46985
+auc: 0.97933
+17 loss: 0.03665
+17 validation loss: 27.67846
+auc: 0.98140
+18 loss: 0.03607
+18 validation loss: 27.87614
+auc: 0.97926
+19 loss: 0.03501
+19 validation loss: 27.96776
+auc: 0.97681
+20 loss: 0.03438
+20 validation loss: 26.99387
+auc: 0.97998
+21 loss: 0.03402
+21 validation loss: 27.26628
+auc: 0.98146
+22 loss: 0.03356
+22 validation loss: 26.35392
+auc: 0.98150
+23 loss: 0.03328
+23 validation loss: 26.79192
+auc: 0.98078
+24 loss: 0.03270
+24 validation loss: 25.76954
+auc: 0.98216
+25 loss: 0.03234
+25 validation loss: 24.36322
+auc: 0.98658
+26 loss: 0.03188
+26 validation loss: 24.59611
+auc: 0.98595
+27 loss: 0.03187
+27 validation loss: 24.97254
+auc: 0.98606
+28 loss: 0.03127
+28 validation loss: 25.47714
+auc: 0.98798
+29 loss: 0.03113
+29 validation loss: 24.76025
+auc: 0.98790
+30 loss: 0.03115
+30 validation loss: 24.08204
+auc: 0.98794
+31 loss: 0.03028
+31 validation loss: 25.59068
+auc: 0.98461
+32 loss: 0.03038
+32 validation loss: 24.74658
+auc: 0.98644
+33 loss: 0.02993
+33 validation loss: 24.97597
+auc: 0.98139
+34 loss: 0.02970
+34 validation loss: 23.52281
+auc: 0.99031
+35 loss: 0.02939
+35 validation loss: 23.30131
+auc: 0.98629
+36 loss: 0.02931
+36 validation loss: 24.26618
+auc: 0.99020
+37 loss: 0.02909
+37 validation loss: 22.24648
+auc: 0.99114
+38 loss: 0.02912
+38 validation loss: 21.43200
+auc: 0.99341
+39 loss: 0.02851
+39 validation loss: 22.22132
+auc: 0.99173
+40 loss: 0.02827
+40 validation loss: 22.52168
+auc: 0.99094
+41 loss: 0.02837
+41 validation loss: 22.54710
+auc: 0.99270
+42 loss: 0.02849
+42 validation loss: 21.33913
+auc: 0.99232
+43 loss: 0.02836
+43 validation loss: 21.92250
+auc: 0.99216
+44 loss: 0.02787
+44 validation loss: 21.91793
+auc: 0.99173
+45 loss: 0.02808
+45 validation loss: 21.31359
+auc: 0.99204
+46 loss: 0.02796
+46 validation loss: 21.08239
+auc: 0.99320
+47 loss: 0.02767
+47 validation loss: 20.52649
+auc: 0.99372
+48 loss: 0.02762
+48 validation loss: 20.61879
+auc: 0.99296
+49 loss: 0.02758
+49 validation loss: 20.46312
+auc: 0.99388
+50 loss: 0.02742
+50 validation loss: 21.42598
+auc: 0.99338
+51 loss: 0.02704
+51 validation loss: 21.41602
+auc: 0.98921
+52 loss: 0.02745
+52 validation loss: 21.21674
+auc: 0.99263
+53 loss: 0.02686
+53 validation loss: 22.84442
+auc: 0.98866
+54 loss: 0.02690
+54 validation loss: 20.70002
+auc: 0.99246
+55 loss: 0.02675
+55 validation loss: 19.90000
+auc: 0.99361
+56 loss: 0.02665
+56 validation loss: 20.99804
+auc: 0.99313
+57 loss: 0.02657
+57 validation loss: 20.80972
+auc: 0.99278
+58 loss: 0.02667
+58 validation loss: 19.57246
+auc: 0.99428
+59 loss: 0.02626
+59 validation loss: 19.23389
+auc: 0.99466
+60 loss: 0.02630
+60 validation loss: 22.69374
+auc: 0.99388
+61 loss: 0.02622
+61 validation loss: 20.78633
+auc: 0.99323
+62 loss: 0.02599
+62 validation loss: 19.29572
+auc: 0.99485
+63 loss: 0.02665
+63 validation loss: 20.69110
+auc: 0.99258
+64 loss: 0.02569
+64 validation loss: 22.15913
+auc: 0.99066
+65 loss: 0.02601
+65 validation loss: 23.00563
+auc: 0.98707
+66 loss: 0.02566
+66 validation loss: 20.00635
+auc: 0.99075
+67 loss: 0.02624
+67 validation loss: 21.34359
+auc: 0.98573
+68 loss: 0.02561
+68 validation loss: 19.57173
+auc: 0.99456
+69 loss: 0.02569
+69 validation loss: 19.65513
+auc: 0.99422
+70 loss: 0.02560
+70 validation loss: 19.90030
+auc: 0.99349
+71 loss: 0.02523
+71 validation loss: 21.21275
+auc: 0.99350
+72 loss: 0.02544
+72 validation loss: 18.57123
+auc: 0.99361
+73 loss: 0.02507
+73 validation loss: 22.81499
+auc: 0.98718
+74 loss: 0.02505
+74 validation loss: 19.74272
+auc: 0.99255
+75 loss: 0.02542
+75 validation loss: 18.73993
+auc: 0.99350
+76 loss: 0.02532
+76 validation loss: 18.56771
+auc: 0.99406
+77 loss: 0.02515
+77 validation loss: 18.82090
+auc: 0.99249
+78 loss: 0.02496
+78 validation loss: 20.64313
+auc: 0.99374
+79 loss: 0.02526
+79 validation loss: 20.02116
+auc: 0.99040
+80 loss: 0.02530
+80 validation loss: 18.99457
+auc: 0.99385
+81 loss: 0.02474
+81 validation loss: 18.98120
+auc: 0.99459
+82 loss: 0.02498
+82 validation loss: 18.30543
+auc: 0.99402
+83 loss: 0.02474
+83 validation loss: 19.53228
+auc: 0.99448
+84 loss: 0.02418
+84 validation loss: 19.42160
+auc: 0.99345
+85 loss: 0.02453
+85 validation loss: 18.99732
+auc: 0.99416
+86 loss: 0.02477
+86 validation loss: 17.81763
+auc: 0.99559
+87 loss: 0.02439
+87 validation loss: 19.93538
+auc: 0.98746
+88 loss: 0.02460
+88 validation loss: 18.70649
+auc: 0.99436
+89 loss: 0.02438
+89 validation loss: 19.24953
+auc: 0.99407
+90 loss: 0.02423
+90 validation loss: 18.55980
+auc: 0.99391
+91 loss: 0.02433
+91 validation loss: 19.70957
+auc: 0.98920
+92 loss: 0.02385
+92 validation loss: 19.95090
+auc: 0.99341
+93 loss: 0.02438
+93 validation loss: 19.74598
+auc: 0.99310
+94 loss: 0.02425
+94 validation loss: 18.90156
+auc: 0.99185
+95 loss: 0.02395
+95 validation loss: 19.40018
+auc: 0.99432
+96 loss: 0.02364
+96 validation loss: 18.95619
+auc: 0.99435
+97 loss: 0.02394
+97 validation loss: 18.88406
+auc: 0.99095
+98 loss: 0.02404
+98 validation loss: 18.88676
+auc: 0.99251
+99 loss: 0.02390
+99 validation loss: 18.31698
+auc: 0.99366
+100 loss: 0.02423
+100 validation loss: 18.67460
+auc: 0.99204
+101 loss: 0.02423
+101 validation loss: 18.15092
+auc: 0.99242
+102 loss: 0.02385
+102 validation loss: 17.59206
+auc: 0.99456
+103 loss: 0.02421
+103 validation loss: 19.40723
+auc: 0.99239
+104 loss: 0.02402
+104 validation loss: 20.71917
+auc: 0.99305
+105 loss: 0.02352
+105 validation loss: 19.09998
+auc: 0.99374
+106 loss: 0.02379
+106 validation loss: 17.55830
+auc: 0.99327
+107 loss: 0.02384
+107 validation loss: 19.83289
+auc: 0.98668
+108 loss: 0.02329
+108 validation loss: 19.47976
+auc: 0.99001
+109 loss: 0.02384
+109 validation loss: 20.39146
+auc: 0.99093
+110 loss: 0.02347
+110 validation loss: 18.63144
+auc: 0.99252
+111 loss: 0.02304
+111 validation loss: 20.72584
+auc: 0.98852
+112 loss: 0.02311
+112 validation loss: 19.30048
+auc: 0.98966
+113 loss: 0.02331
+113 validation loss: 17.84513
+auc: 0.99281
+114 loss: 0.02357
+114 validation loss: 18.98277
+auc: 0.98892
+115 loss: 0.02349
+115 validation loss: 19.64716
+auc: 0.99299
+116 loss: 0.02398
+116 validation loss: 18.74923
+auc: 0.99188
+117 loss: 0.02294
+117 validation loss: 18.74566
+auc: 0.99312
+118 loss: 0.02306
+118 validation loss: 17.24911
+auc: 0.99252
+119 loss: 0.02316
+119 validation loss: 17.72201
+auc: 0.99324
+120 loss: 0.02313
+120 validation loss: 19.22688
+auc: 0.99500
+121 loss: 0.02326
+121 validation loss: 18.86159
+auc: 0.99246
+122 loss: 0.02314
+122 validation loss: 20.13673
+auc: 0.99197
+123 loss: 0.02320
+123 validation loss: 19.81245
+auc: 0.99301
+124 loss: 0.02292
+124 validation loss: 19.69156
+auc: 0.99305
+125 loss: 0.02331
+125 validation loss: 18.46037
+auc: 0.99125
+126 loss: 0.02293
+126 validation loss: 18.85041
+auc: 0.99150
+127 loss: 0.02308
+127 validation loss: 20.18921
+auc: 0.99013
+128 loss: 0.02251
+128 validation loss: 19.33861
+auc: 0.98947
+129 loss: 0.02237
+129 validation loss: 18.33942
+auc: 0.99201
+130 loss: 0.02277
+130 validation loss: 17.94549
+auc: 0.99300
+131 loss: 0.02274
+131 validation loss: 19.03418
+auc: 0.99032
+132 loss: 0.02269
+132 validation loss: 18.21423
+auc: 0.99036
+133 loss: 0.02233
+133 validation loss: 17.79272
+auc: 0.99403
+134 loss: 0.02304
+134 validation loss: 18.49606
+auc: 0.99287
+135 loss: 0.02270
+135 validation loss: 20.26209
+auc: 0.98726
+136 loss: 0.02225
+136 validation loss: 19.22308
+auc: 0.99455
+137 loss: 0.02264
+137 validation loss: 17.62038
+auc: 0.99429
+138 loss: 0.02292
+138 validation loss: 19.78419
+auc: 0.99108
+139 loss: 0.02257
+139 validation loss: 18.16879
+auc: 0.99333
+140 loss: 0.02284
+140 validation loss: 19.29734
+auc: 0.99197
+141 loss: 0.02243
+141 validation loss: 19.32464
+auc: 0.99141
+142 loss: 0.02247
+142 validation loss: 17.96938
+auc: 0.99294
+143 loss: 0.02265
+143 validation loss: 18.05619
+auc: 0.99447
+144 loss: 0.02246
+144 validation loss: 19.11568
+auc: 0.99111
+145 loss: 0.02233
+145 validation loss: 17.52776
+auc: 0.99431
+146 loss: 0.02231
+146 validation loss: 18.78493
+auc: 0.99203
+147 loss: 0.02225
+147 validation loss: 18.09939
+auc: 0.99233
+148 loss: 0.02266
+148 validation loss: 19.67081
+auc: 0.99183
+149 loss: 0.02179
+149 validation loss: 18.01280
+auc: 0.99203
+150 loss: 0.02258
+150 validation loss: 17.82159
+auc: 0.99159
+151 loss: 0.02248
+151 validation loss: 18.13189
+auc: 0.99269
+152 loss: 0.02258
+152 validation loss: 17.76260
+auc: 0.99431
+153 loss: 0.02226
+153 validation loss: 19.05350
+auc: 0.99434
+154 loss: 0.02260
+154 validation loss: 17.63290
+auc: 0.99499
+155 loss: 0.02280
+155 validation loss: 17.56146
+auc: 0.99262
+156 loss: 0.02294
+156 validation loss: 20.23658
+auc: 0.98813
+157 loss: 0.02211
+157 validation loss: 17.50166
+auc: 0.99260
+158 loss: 0.02265
+158 validation loss: 18.10534
+auc: 0.98950
+159 loss: 0.02272
+159 validation loss: 17.71643
+auc: 0.99243
+160 loss: 0.02268
+160 validation loss: 19.56100
+auc: 0.98822
+161 loss: 0.02211
+161 validation loss: 18.19046
+auc: 0.99171
+162 loss: 0.02251
+162 validation loss: 18.21253
+auc: 0.99136
+163 loss: 0.02298
+163 validation loss: 17.93619
+auc: 0.99204
+164 loss: 0.02291
+164 validation loss: 18.70849
+auc: 0.99081
+165 loss: 0.02213
+165 validation loss: 17.62793
+auc: 0.99526
+166 loss: 0.02212
+166 validation loss: 18.15740
+auc: 0.99404
+167 loss: 0.02272
+167 validation loss: 16.84252
+auc: 0.99188
+168 loss: 0.02286
+168 validation loss: 17.99505
+auc: 0.99179
+169 loss: 0.02214
+169 validation loss: 17.98266
+auc: 0.99102
+170 loss: 0.02230
+170 validation loss: 18.21601
+auc: 0.99477
+171 loss: 0.02282
+171 validation loss: 18.09140
+auc: 0.99282
+172 loss: 0.02244
+172 validation loss: 17.86660
+auc: 0.99296
+173 loss: 0.02190
+173 validation loss: 18.68462
+auc: 0.98883
+174 loss: 0.02270
+174 validation loss: 18.23933
+auc: 0.98587
+175 loss: 0.02290
+175 validation loss: 16.72046
+auc: 0.99244
+176 loss: 0.02252
+176 validation loss: 17.13518
+auc: 0.99405
+177 loss: 0.02214
+177 validation loss: 17.95750
+auc: 0.99380
+178 loss: 0.02251
+178 validation loss: 17.17804
+auc: 0.99408
+179 loss: 0.02238
+179 validation loss: 17.05883
+auc: 0.99389
+180 loss: 0.02276
+180 validation loss: 17.47843
+auc: 0.99368
+181 loss: 0.02247
+181 validation loss: 18.95511
+auc: 0.99214
+182 loss: 0.02249
+182 validation loss: 18.28532
+auc: 0.99277
+183 loss: 0.02228
+183 validation loss: 18.28063
+auc: 0.99435
+184 loss: 0.02217
+184 validation loss: 17.19660
+auc: 0.99280
+185 loss: 0.02251
+185 validation loss: 17.01318
+auc: 0.99460
+186 loss: 0.02241
+186 validation loss: 17.45957
+auc: 0.99482
+187 loss: 0.02260
+187 validation loss: 17.18667
+auc: 0.99223
+188 loss: 0.02286
+188 validation loss: 17.73602
+auc: 0.99328
+189 loss: 0.02234
+189 validation loss: 17.33981
+auc: 0.99150
+190 loss: 0.02276
+190 validation loss: 17.53865
+auc: 0.99282
+191 loss: 0.02280
+191 validation loss: 16.67522
+auc: 0.99323
+192 loss: 0.02243
+192 validation loss: 16.61861
+auc: 0.99453
+193 loss: 0.02272
+193 validation loss: 17.86458
+auc: 0.99494
+194 loss: 0.02279
+194 validation loss: 17.63516
+auc: 0.99112
+195 loss: 0.02267
+195 validation loss: 17.17997
+auc: 0.99450
+196 loss: 0.02278
+196 validation loss: 17.64425
+auc: 0.99297
+197 loss: 0.02274
+197 validation loss: 18.16203
+auc: 0.99110
+198 loss: 0.02269
+198 validation loss: 16.64494
+auc: 0.99459
+199 loss: 0.02267
+199 validation loss: 16.90300
+auc: 0.99500
+200 loss: 0.02285
+200 validation loss: 17.69252
+auc: 0.98973
+201 loss: 0.02277
+201 validation loss: 16.38927
+auc: 0.99570
+202 loss: 0.02262
+202 validation loss: 17.59356
+auc: 0.99392
+203 loss: 0.02277
+203 validation loss: 18.04397
+auc: 0.99419
+204 loss: 0.02223
+204 validation loss: 17.40484
+auc: 0.99358
+205 loss: 0.02271
+205 validation loss: 19.47174
+auc: 0.99108
+206 loss: 0.02265
+206 validation loss: 17.70958
+auc: 0.99467
+207 loss: 0.02281
+207 validation loss: 16.97694
+auc: 0.99478
+208 loss: 0.02254
+208 validation loss: 17.90874
+auc: 0.99383
+209 loss: 0.02284
+209 validation loss: 17.90591
+auc: 0.99283
+210 loss: 0.02282
+210 validation loss: 16.96057
+auc: 0.99435
+211 loss: 0.02272
+211 validation loss: 16.55560
+auc: 0.99354
+212 loss: 0.02258
+212 validation loss: 17.04894
+auc: 0.99359
+213 loss: 0.02242
+213 validation loss: 17.26491
+auc: 0.99327
+214 loss: 0.02288
+214 validation loss: 17.47650
+auc: 0.99347
+215 loss: 0.02243
+215 validation loss: 16.94951
+auc: 0.99392
+216 loss: 0.02266
+216 validation loss: 17.59453
+auc: 0.99046
+217 loss: 0.02256
+217 validation loss: 16.90729
+auc: 0.99313
+218 loss: 0.02249
+218 validation loss: 16.13340
+auc: 0.99456
+219 loss: 0.02237
+219 validation loss: 17.96634
+auc: 0.99192
+220 loss: 0.02239
+220 validation loss: 18.07371
+auc: 0.99208
+221 loss: 0.02252
+221 validation loss: 16.81865
+auc: 0.99397
+222 loss: 0.02229
+222 validation loss: 17.07176
+auc: 0.99371
+223 loss: 0.02254
+223 validation loss: 17.00650
+auc: 0.99455
+224 loss: 0.02260
+224 validation loss: 16.09549
+auc: 0.99390
+225 loss: 0.02236
+225 validation loss: 17.49243
+auc: 0.99385
+226 loss: 0.02232
+226 validation loss: 16.53856
+auc: 0.99325
+227 loss: 0.02277
+227 validation loss: 17.68409
+auc: 0.99332
+228 loss: 0.02229
+228 validation loss: 16.62111
+auc: 0.99446
+229 loss: 0.02232
+229 validation loss: 17.90464
+auc: 0.99113
+230 loss: 0.02209
+230 validation loss: 18.47963
+auc: 0.99305
+231 loss: 0.02226
+231 validation loss: 16.95728
+auc: 0.99336
+232 loss: 0.02206
+232 validation loss: 16.33869
+auc: 0.99445
+233 loss: 0.02201
+233 validation loss: 16.97936
+auc: 0.99550
+234 loss: 0.02184
+234 validation loss: 18.80327
+auc: 0.99276
+235 loss: 0.02229
+235 validation loss: 17.16440
+auc: 0.99545
+236 loss: 0.02210
+236 validation loss: 17.19859
+auc: 0.99428
+237 loss: 0.02210
+237 validation loss: 18.02752
+auc: 0.99239
+238 loss: 0.02181
+238 validation loss: 18.17625
+auc: 0.99374
+239 loss: 0.02233
+239 validation loss: 17.27099
+auc: 0.99467
+240 loss: 0.02210
+240 validation loss: 17.89823
+auc: 0.99086
+241 loss: 0.02211
+241 validation loss: 17.99026
+auc: 0.99204
+242 loss: 0.02187
+242 validation loss: 18.08999
+auc: 0.99341
+243 loss: 0.02187
+243 validation loss: 16.73289
+auc: 0.99380
+244 loss: 0.02211
+244 validation loss: 17.47729
+auc: 0.99364
+245 loss: 0.02186
+245 validation loss: 18.12615
+auc: 0.99295
+246 loss: 0.02225
+246 validation loss: 19.29335
+auc: 0.99277
+247 loss: 0.02162
+247 validation loss: 17.77218
+auc: 0.99552
+248 loss: 0.02215
+248 validation loss: 17.65436
+auc: 0.99304
+249 loss: 0.02226
+249 validation loss: 17.46290
+auc: 0.99343
+250 loss: 0.02177
+250 validation loss: 17.60057
+auc: 0.99352
+251 loss: 0.02168
+251 validation loss: 17.88451
+auc: 0.99386
+252 loss: 0.02141
+252 validation loss: 17.90993
+auc: 0.99407
+253 loss: 0.02156
+253 validation loss: 17.67188
+auc: 0.99377
+254 loss: 0.02185
+254 validation loss: 17.51522
+auc: 0.99478
+255 loss: 0.02169
+255 validation loss: 17.28508
+auc: 0.99360
+256 loss: 0.02177
+256 validation loss: 16.96844
+auc: 0.99404
+257 loss: 0.02159
+257 validation loss: 18.43853
+auc: 0.99034
+258 loss: 0.02080
+258 validation loss: 18.93886
+auc: 0.99475
+259 loss: 0.02108
+259 validation loss: 17.29717
+auc: 0.99393
+260 loss: 0.02155
+260 validation loss: 18.05437
+auc: 0.99385
+261 loss: 0.02142
+261 validation loss: 17.07112
+auc: 0.99421
+262 loss: 0.02164
+262 validation loss: 17.83789
+auc: 0.99292
+263 loss: 0.02129
+263 validation loss: 17.87988
+auc: 0.99400
+264 loss: 0.02149
+264 validation loss: 17.22175
+auc: 0.99393
+265 loss: 0.02171
+265 validation loss: 17.09835
+auc: 0.99402
+266 loss: 0.02145
+266 validation loss: 17.17316
+auc: 0.99466
+267 loss: 0.02141
+267 validation loss: 17.71686
+auc: 0.99486
+268 loss: 0.02149
+268 validation loss: 17.41501
+auc: 0.99375
+269 loss: 0.02134
+269 validation loss: 18.21232
+auc: 0.99471
+270 loss: 0.02154
+270 validation loss: 16.76065
+auc: 0.99257
+271 loss: 0.02159
+271 validation loss: 16.89951
+auc: 0.99386
+272 loss: 0.02165
+272 validation loss: 17.19685
+auc: 0.99485
+273 loss: 0.02128
+273 validation loss: 17.44014
+auc: 0.99321
+274 loss: 0.02140
+274 validation loss: 17.18968
+auc: 0.99453
+275 loss: 0.02188
+275 validation loss: 16.11348
+auc: 0.99500
+276 loss: 0.02163
+276 validation loss: 17.38763
+auc: 0.99280
+277 loss: 0.02171
+277 validation loss: 17.13268
+auc: 0.99115
+278 loss: 0.02121
+278 validation loss: 18.29451
+auc: 0.99359
+279 loss: 0.02130
+279 validation loss: 18.35649
+auc: 0.99170
+280 loss: 0.02147
+280 validation loss: 17.46638
+auc: 0.99153
+281 loss: 0.02129
+281 validation loss: 16.56639
+auc: 0.99473
+282 loss: 0.02134
+282 validation loss: 18.10680
+auc: 0.99220
+283 loss: 0.02137
+283 validation loss: 16.59876
+auc: 0.99330
+284 loss: 0.02132
+284 validation loss: 17.19361
+auc: 0.99457
+285 loss: 0.02165
+285 validation loss: 17.39491
+auc: 0.99264
+286 loss: 0.02128
+286 validation loss: 17.11317
+auc: 0.99184
+287 loss: 0.02138
+287 validation loss: 17.22292
+auc: 0.99375
+288 loss: 0.02145
+288 validation loss: 18.24923
+auc: 0.99231
+289 loss: 0.02101
+289 validation loss: 17.03185
+auc: 0.99295
+290 loss: 0.02160
+290 validation loss: 17.77974
+auc: 0.99210
+291 loss: 0.02125
+291 validation loss: 17.66142
+auc: 0.99328
+292 loss: 0.02135
+292 validation loss: 17.96746
+auc: 0.99199
+293 loss: 0.02100
+293 validation loss: 17.36660
+auc: 0.99377
+294 loss: 0.02127
+294 validation loss: 17.56458
+auc: 0.99368
+295 loss: 0.02118
+295 validation loss: 17.03871
+auc: 0.99322
+296 loss: 0.02134
+296 validation loss: 17.58670
+auc: 0.99405
+297 loss: 0.02122
+297 validation loss: 17.01710
+auc: 0.99319
+298 loss: 0.02129
+298 validation loss: 17.63961
+auc: 0.99360
+299 loss: 0.02162
+299 validation loss: 17.44612
+auc: 0.99107
+300 loss: 0.02127
+300 validation loss: 17.61423
+auc: 0.99390
+301 loss: 0.02165
+301 validation loss: 17.36982
+auc: 0.99146
+302 loss: 0.02131
+302 validation loss: 16.74878
+auc: 0.99307
+303 loss: 0.02166
+303 validation loss: 17.49367
+auc: 0.99302
+304 loss: 0.02147
+304 validation loss: 16.96689
+auc: 0.99362
+305 loss: 0.02098
+305 validation loss: 18.21663
+auc: 0.99408
+306 loss: 0.02105
+306 validation loss: 18.01238
+auc: 0.99145
+307 loss: 0.02099
+307 validation loss: 19.25866
+auc: 0.99021
+308 loss: 0.02159
+308 validation loss: 17.84164
+auc: 0.99392
+309 loss: 0.02090
+309 validation loss: 17.31642
+auc: 0.99369
+310 loss: 0.02117
+310 validation loss: 18.60290
+auc: 0.99249
+311 loss: 0.02141
+311 validation loss: 18.12921
+auc: 0.99454
+312 loss: 0.02082
+312 validation loss: 17.06566
+auc: 0.99329
+313 loss: 0.02122
+313 validation loss: 17.43100
+auc: 0.99310
+314 loss: 0.02153
+314 validation loss: 16.47622
+auc: 0.99403
+315 loss: 0.02123
+315 validation loss: 17.13004
+auc: 0.99515
+316 loss: 0.02130
+316 validation loss: 17.09325
+auc: 0.99403
+317 loss: 0.02126
+317 validation loss: 16.46288
+auc: 0.99499
+318 loss: 0.02134
+318 validation loss: 16.81176
+auc: 0.99394
+319 loss: 0.02114
+319 validation loss: 17.01304
+auc: 0.99301
+320 loss: 0.02150
+320 validation loss: 16.76135
+auc: 0.99299
+321 loss: 0.02146
+321 validation loss: 17.40955
+auc: 0.99507
+322 loss: 0.02132
+322 validation loss: 17.32282
+auc: 0.99324
+323 loss: 0.02126
+323 validation loss: 18.82140
+auc: 0.99261
+324 loss: 0.02081
+324 validation loss: 19.54669
+auc: 0.99360
+325 loss: 0.02131
+325 validation loss: 17.49034
+auc: 0.99423
+326 loss: 0.02112
+326 validation loss: 16.41749
+auc: 0.99482
+327 loss: 0.02136
+327 validation loss: 16.82596
+auc: 0.99318
+328 loss: 0.02119
+328 validation loss: 16.88827
+auc: 0.99268
+329 loss: 0.02131
+329 validation loss: 16.82053
+auc: 0.99342
+330 loss: 0.02114
+330 validation loss: 16.94545
+auc: 0.99392
+331 loss: 0.02117
+331 validation loss: 17.54494
+auc: 0.99475
+332 loss: 0.02089
+332 validation loss: 17.34788
+auc: 0.99426
+333 loss: 0.02088
+333 validation loss: 17.90150
+auc: 0.99414
+334 loss: 0.02082
+334 validation loss: 17.79826
+auc: 0.99357
+335 loss: 0.02103
+335 validation loss: 17.64080
+auc: 0.99316
+336 loss: 0.02124
+336 validation loss: 16.44579
+auc: 0.99456
+337 loss: 0.02091
+337 validation loss: 18.52171
+auc: 0.99415
+338 loss: 0.02146
+338 validation loss: 16.89881
+auc: 0.99429
+339 loss: 0.02151
+339 validation loss: 17.85648
+auc: 0.99164
+340 loss: 0.02094
+340 validation loss: 16.33425
+auc: 0.99410
+341 loss: 0.02083
+341 validation loss: 18.02633
+auc: 0.99405
+342 loss: 0.02149
+342 validation loss: 17.57168
+auc: 0.99383
+343 loss: 0.02108
+343 validation loss: 17.11978
+auc: 0.99443
+344 loss: 0.02134
+344 validation loss: 17.24100
+auc: 0.99484
+345 loss: 0.02098
+345 validation loss: 17.95289
+auc: 0.99182
+346 loss: 0.02130
+346 validation loss: 19.51656
+auc: 0.99097
+347 loss: 0.02116
+347 validation loss: 16.57635
+auc: 0.99402
+348 loss: 0.02125
+348 validation loss: 17.15904
+auc: 0.99338
+349 loss: 0.02080
+349 validation loss: 18.26089
+auc: 0.99258
+350 loss: 0.02137
+350 validation loss: 16.98078
+auc: 0.99511
+351 loss: 0.02055
+351 validation loss: 18.14668
+auc: 0.99427
+352 loss: 0.02100
+352 validation loss: 18.94558
+auc: 0.99347
+353 loss: 0.02098
+353 validation loss: 17.43963
+auc: 0.99306
+354 loss: 0.02096
+354 validation loss: 16.58930
+auc: 0.99240
+355 loss: 0.02103
+355 validation loss: 16.53094
+auc: 0.99384
+356 loss: 0.02112
+356 validation loss: 16.80956
+auc: 0.99137
+357 loss: 0.02099
+357 validation loss: 16.83077
+auc: 0.99420
+358 loss: 0.02071
+358 validation loss: 16.95649
+auc: 0.99388
+359 loss: 0.02090
+359 validation loss: 16.54397
+auc: 0.99261
+360 loss: 0.02086
+360 validation loss: 18.11956
+auc: 0.99160
+361 loss: 0.02112
+361 validation loss: 16.91375
+auc: 0.99438
+362 loss: 0.02079
+362 validation loss: 16.82929
+auc: 0.99218
+363 loss: 0.02094
+363 validation loss: 17.89129
+auc: 0.99380
+364 loss: 0.02062
+364 validation loss: 17.49517
+auc: 0.99317
+365 loss: 0.02093
+365 validation loss: 18.30174
+auc: 0.99106
+366 loss: 0.02070
+366 validation loss: 18.09943
+auc: 0.99081
+367 loss: 0.02085
+367 validation loss: 17.04429
+auc: 0.98950
+368 loss: 0.02094
+368 validation loss: 17.56233
+auc: 0.99209
+369 loss: 0.02082
+369 validation loss: 16.72693
+auc: 0.99373
+370 loss: 0.02097
+370 validation loss: 17.52583
+auc: 0.99119
+371 loss: 0.02096
+371 validation loss: 18.14480
+auc: 0.99165
+372 loss: 0.02102
+372 validation loss: 17.49173
+auc: 0.99206
+373 loss: 0.02087
+373 validation loss: 18.06915
+auc: 0.99264
+374 loss: 0.02088
+374 validation loss: 17.77149
+auc: 0.99209
+375 loss: 0.02094
+375 validation loss: 18.17402
+auc: 0.99148
+376 loss: 0.02097
+376 validation loss: 18.33622
+auc: 0.98809
+377 loss: 0.02094
+377 validation loss: 16.45282
+auc: 0.99281
+378 loss: 0.02088
+378 validation loss: 16.92459
+auc: 0.99376
+379 loss: 0.02093
+379 validation loss: 18.06308
+auc: 0.99216
+380 loss: 0.02105
+380 validation loss: 17.91632
+auc: 0.99042
+381 loss: 0.02080
+381 validation loss: 16.96048
+auc: 0.99209
+382 loss: 0.02123
+382 validation loss: 17.30886
+auc: 0.99219
+383 loss: 0.02104
+383 validation loss: 17.49690
+auc: 0.99279
+384 loss: 0.02076
+384 validation loss: 17.82495
+auc: 0.98999
+385 loss: 0.02079
+385 validation loss: 16.28084
+auc: 0.99446
+386 loss: 0.02087
+386 validation loss: 16.81853
+auc: 0.99212
+387 loss: 0.02103
+387 validation loss: 17.82145
+auc: 0.99133
+388 loss: 0.02089
+388 validation loss: 16.59712
+auc: 0.99088
+389 loss: 0.02097
+389 validation loss: 16.88208
+auc: 0.99203
+390 loss: 0.02100
+390 validation loss: 17.41371
+auc: 0.99258
+391 loss: 0.02072
+391 validation loss: 16.87212
+auc: 0.99238
+392 loss: 0.02083
+392 validation loss: 16.80228
+auc: 0.99203
+393 loss: 0.02096
+393 validation loss: 17.15208
+auc: 0.99329
+394 loss: 0.02057
+394 validation loss: 17.07378
+auc: 0.99415
+395 loss: 0.02082
+395 validation loss: 17.46662
+auc: 0.99301
+396 loss: 0.02069
+396 validation loss: 16.97444
+auc: 0.99296
+397 loss: 0.02081
+397 validation loss: 17.39485
+auc: 0.99166
+398 loss: 0.02066
+398 validation loss: 17.13393
+auc: 0.99236
+399 loss: 0.02093
+399 validation loss: 17.73370
+auc: 0.99021
+400 loss: 0.02090
+400 validation loss: 17.30900
+auc: 0.99290
+401 loss: 0.02080
+401 validation loss: 16.43427
+auc: 0.99260
+402 loss: 0.02083
+402 validation loss: 17.06804
+auc: 0.99112
+403 loss: 0.02111
+403 validation loss: 16.69123
+auc: 0.99286
+404 loss: 0.02073
+404 validation loss: 16.69803
+auc: 0.99190
+405 loss: 0.02069
+405 validation loss: 17.02697
+auc: 0.99296
+406 loss: 0.02081
+406 validation loss: 17.68436
+auc: 0.99193
+407 loss: 0.02077
+407 validation loss: 17.10223
+auc: 0.99247
+408 loss: 0.02116
+408 validation loss: 17.49767
+auc: 0.99397
+409 loss: 0.02066
+409 validation loss: 17.58264
+auc: 0.98904
+410 loss: 0.02097
+410 validation loss: 16.68289
+auc: 0.99043
+411 loss: 0.02068
+411 validation loss: 16.71552
+auc: 0.99247
+412 loss: 0.02079
+412 validation loss: 17.54698
+auc: 0.98885
+413 loss: 0.02080
+413 validation loss: 17.25964
+auc: 0.99153
+414 loss: 0.02076
+414 validation loss: 16.56789
+auc: 0.98983
+415 loss: 0.02082
+415 validation loss: 18.05248
+auc: 0.99054
+416 loss: 0.02067
+416 validation loss: 17.89350
+auc: 0.98943
+417 loss: 0.02102
+417 validation loss: 18.15880
+auc: 0.99246
+418 loss: 0.02085
+418 validation loss: 16.62981
+auc: 0.99202
+419 loss: 0.02067
+419 validation loss: 17.23422
+auc: 0.99071
+420 loss: 0.02051
+420 validation loss: 17.17009
+auc: 0.99021
+421 loss: 0.02076
+421 validation loss: 16.08919
+auc: 0.99253
+422 loss: 0.02059
+422 validation loss: 17.02354
+auc: 0.99244
+423 loss: 0.02054
+423 validation loss: 18.94631
+auc: 0.99009
+424 loss: 0.02089
+424 validation loss: 16.48015
+auc: 0.99214
+425 loss: 0.02093
+425 validation loss: 17.18635
+auc: 0.99144
+426 loss: 0.02084
+426 validation loss: 17.52316
+auc: 0.99217
+427 loss: 0.02063
+427 validation loss: 17.68738
+auc: 0.99210
+428 loss: 0.02045
+428 validation loss: 18.99110
+auc: 0.99120
+429 loss: 0.02065
+429 validation loss: 17.45406
+auc: 0.98958
+430 loss: 0.02082
+430 validation loss: 17.21887
+auc: 0.99226
+431 loss: 0.02052
+431 validation loss: 16.85991
+auc: 0.99235
+432 loss: 0.02020
+432 validation loss: 17.73354
+auc: 0.99064
+433 loss: 0.02081
+433 validation loss: 17.98906
+auc: 0.98941
+434 loss: 0.02078
+434 validation loss: 17.50750
+auc: 0.99308
+435 loss: 0.02087
+435 validation loss: 16.58910
+auc: 0.99164
+436 loss: 0.02033
+436 validation loss: 17.92455
+auc: 0.99176
+437 loss: 0.02021
+437 validation loss: 17.03557
+auc: 0.99253
+438 loss: 0.02071
+438 validation loss: 17.77039
+auc: 0.99207
+439 loss: 0.02083
+439 validation loss: 16.66089
+auc: 0.99205
+440 loss: 0.02091
+440 validation loss: 16.84787
+auc: 0.99359
+441 loss: 0.02073
+441 validation loss: 18.01291
+auc: 0.98980
+442 loss: 0.02077
+442 validation loss: 17.22180
+auc: 0.99079
+443 loss: 0.02048
+443 validation loss: 17.34405
+auc: 0.99227
+444 loss: 0.02060
+444 validation loss: 18.22302
+auc: 0.98957
+445 loss: 0.02075
+445 validation loss: 17.06067
+auc: 0.99238
+446 loss: 0.02078
+446 validation loss: 17.67127
+auc: 0.99165
+447 loss: 0.02086
+447 validation loss: 17.42871
+auc: 0.99171
+448 loss: 0.02023
+448 validation loss: 16.95462
+auc: 0.99198
+449 loss: 0.02044
+449 validation loss: 16.65093
+auc: 0.99127
+450 loss: 0.02089
+450 validation loss: 16.03098
+auc: 0.99209
+451 loss: 0.02061
+451 validation loss: 17.17476
+auc: 0.99208
+452 loss: 0.02078
+452 validation loss: 16.68037
+auc: 0.99312
+453 loss: 0.02059
+453 validation loss: 18.05557
+auc: 0.99165
+454 loss: 0.02029
+454 validation loss: 16.88363
+auc: 0.99120
+455 loss: 0.02083
+455 validation loss: 18.16748
+auc: 0.98886
+456 loss: 0.02074
+456 validation loss: 17.03122
+auc: 0.99082
+457 loss: 0.02085
+457 validation loss: 16.80789
+auc: 0.99279
+458 loss: 0.02070
+458 validation loss: 17.38282
+auc: 0.99185
+459 loss: 0.02085
+459 validation loss: 16.73740
+auc: 0.99269
+460 loss: 0.02040
+460 validation loss: 17.94306
+auc: 0.99033
+461 loss: 0.02035
+461 validation loss: 17.84455
+auc: 0.99190
+462 loss: 0.02099
+462 validation loss: 17.14128
+auc: 0.99019
+463 loss: 0.02071
+463 validation loss: 16.48469
+auc: 0.99385
+464 loss: 0.02051
+464 validation loss: 17.08097
+auc: 0.99132
+465 loss: 0.02054
+465 validation loss: 17.79776
+auc: 0.98977
+466 loss: 0.02082
+466 validation loss: 17.43726
+auc: 0.98916
+467 loss: 0.02067
+467 validation loss: 16.86487
+auc: 0.99144
+468 loss: 0.02074
+468 validation loss: 17.47121
+auc: 0.99116
+469 loss: 0.02085
+469 validation loss: 17.37918
+auc: 0.98884
+470 loss: 0.02092
+470 validation loss: 17.04244
+auc: 0.99186
+471 loss: 0.02065
+471 validation loss: 17.40848
+auc: 0.99070
+472 loss: 0.02076
+472 validation loss: 17.98581
+auc: 0.99027
+473 loss: 0.02086
+473 validation loss: 18.03419
+auc: 0.98935
+474 loss: 0.02100
+474 validation loss: 17.48241
+auc: 0.99157
+475 loss: 0.02073
+475 validation loss: 16.87240
+auc: 0.98993
+476 loss: 0.02064
+476 validation loss: 17.67683
+auc: 0.98963
+477 loss: 0.02064
+477 validation loss: 17.23561
+auc: 0.99293
+478 loss: 0.02079
+478 validation loss: 17.29360
+auc: 0.99208
+479 loss: 0.02085
+479 validation loss: 16.68383
+auc: 0.99133
+480 loss: 0.02072
+480 validation loss: 17.58513
+auc: 0.98939
+481 loss: 0.02092
+481 validation loss: 17.99370
+auc: 0.99091
+482 loss: 0.02037
+482 validation loss: 16.93745
+auc: 0.99044
+483 loss: 0.02093
+483 validation loss: 17.65235
+auc: 0.99077
+484 loss: 0.02078
+484 validation loss: 17.59417
+auc: 0.99057
+485 loss: 0.02099
+485 validation loss: 17.52282
+auc: 0.98874
+486 loss: 0.02072
+486 validation loss: 18.83775
+auc: 0.99062
+487 loss: 0.02059
+487 validation loss: 16.97757
+auc: 0.98841
+488 loss: 0.02033
+488 validation loss: 17.96047
+auc: 0.99110
+489 loss: 0.02084
+489 validation loss: 17.66178
+auc: 0.98975
+490 loss: 0.02085
+490 validation loss: 16.36926
+auc: 0.99171
+491 loss: 0.02061
+491 validation loss: 19.14359
+auc: 0.98825
+492 loss: 0.02076
+492 validation loss: 17.17855
+auc: 0.99113
+493 loss: 0.02071
+493 validation loss: 17.72586
+auc: 0.99102
+494 loss: 0.02076
+494 validation loss: 16.97797
+auc: 0.99194
+495 loss: 0.02079
+495 validation loss: 18.95528
+auc: 0.98908
+496 loss: 0.02070
+496 validation loss: 17.10892
+auc: 0.98877
+497 loss: 0.02073
+497 validation loss: 17.75153
+auc: 0.99183
+498 loss: 0.02092
+498 validation loss: 17.63976
+auc: 0.99067
+499 loss: 0.02067
+499 validation loss: 18.26301
+auc: 0.98908
+500 loss: 0.02078
+500 validation loss: 17.42861
+auc: 0.99093
+Finished Training
