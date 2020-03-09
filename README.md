@@ -14,15 +14,21 @@ This repository belongs to abnormal detection group in Sharif university of Tech
 <!--
 The aim of the project is to learn a robust representation from normal samples in order to detect abnormality patterns. This work is mainly inspired by these papers, ["Adversarial examples for generative models"](https://arxiv.org/pdf/1702.06832.pdf) and ["Adversarial Manipulation of Deep Representations"](https://arxiv.org/pdf/1511.05122.pdf). More specifically, a new objective function is introduced by which an Autoencoder is trained so that it can both minimize pixel-wise error and learn a robust representation where it can capture variants of a sample in latesnt space. -->
 
+
 ## Prerequisites
 
 * Tensorflwo 1.12
 * Keras 2.2.4
 * torch 1.4
 
-## Getting Started
 
-Having cloned the repository, the script can be run using the following arguments:
+## Running the code
+
+Having cloned the repository,
+
+### 1. L-inf model: ###
+
+the script can be run using the following arguments:
 
 ```
 optional arguments:
@@ -50,5 +56,14 @@ Note: To submit a task on HPC, all you need to do is to call run.sh. It will be 
 ```
 qsub run.sh
 ```
+
+### 2. Union model: ###
+
+- At first, you need to complete the submit.sh according to your HPC setting to submit a sbatch file.
+- Then, you just need to run main.sh on the HPC, It will automatically run code.py for 10 classes.
+
+1. Note that by runnig the code.py you can save models and get results for a given class.
+2. Note that you can separately run code.py by passing a number of class as an argument.
+
 
 ## Citation
