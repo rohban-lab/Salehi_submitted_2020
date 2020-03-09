@@ -20,9 +20,9 @@ The aim of the project is to learn a robust representation from normal samples i
 
 ## Prerequisites
 
-* Tensorflwo 1.12
-* Keras 2.2.4
-* torch 1.4
+* Tensorflow >= 1.15.0
+* Keras >= 2.2.4
+* torch >= 1.4
 
 
 ## Running the code
