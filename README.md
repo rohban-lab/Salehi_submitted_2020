@@ -6,7 +6,7 @@ This repository contains code to reproduce the main experiments of our paper "AR
 Also, you can find our pre-trained models and our final results.
 
 ![ARAE vs DAE](/MNIST-union/images/ARAEvsDAE.png)
-Format: ![Alt Text](url)
+*Unlike  DAE,  ARAE  that  is  trained  on  the  normal  class,  which  is  thedigit 8, reconstructs a normal instance when it is given an anomalous digit, fromthe class 1*
 
 <!--
 Here, we can provide the link to our paper, and we can write authors list.
@@ -27,7 +27,7 @@ The aim of the project is to learn a robust representation from normal samples i
 
 ## Running the code
 
-Having cloned the repository,
+Having cloned the repository, you can reproduce our results:
 
 ### 1. L-inf model: ###
 
@@ -66,7 +66,7 @@ qsub run.sh
 - Then, you just need to run main.sh on the HPC, It will automatically run code.py for 10 classes.
 
 1. Note that by runnig the code.py you can save models and get results for a given class.
-2. Note that you can separately run code.py by passing a number of class as an argument.
+2. You can separately run code.py by passing a number of class as an argument.
 
 
 ## Citation
