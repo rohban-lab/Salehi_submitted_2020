@@ -31,6 +31,8 @@ Having cloned the repository, you can reproduce our results:
 
 ### 1. L-inf model:
 
+If you want to use the pretrained models, 
+
 #### Preparing the data
 
 At first, run prepare.py to prepare the data. The first argument to be passed is the dataset name. You may choose between fashion_mnist, mnist, and coil100.  For mnist and fashion_mnist, the next argument is the chosen protocol to prepare the data. For this argument you may choose betwen p1 and p2. If p2 is chosen, the next argument is the normal class number. Otherwise, the next argument is the anomaly percentage. Then you have to pass the class number.
@@ -44,7 +46,7 @@ python3 prepare.py mnist p1 0.5 8
 python3 prepare.py fashion_mnist p2 2
 ```
 
-For the coil100 dataset, only the first protocol is available. After passing the dataset name, you have to pass the anomaly percentage. Next, you pass the number of normal classes n. After that, n class numbers are passed.
+For the coil100 dataset, only the first protocol is available. After passing the dataset name, you have to pass the anomaly percentage. Next, you pass the number of normal classes. After that, the class numbers are passed.
 
 Here is an example for the coil100 dataset:
 
@@ -52,9 +54,17 @@ Here is an example for the coil100 dataset:
 python3 prepare.py 0.25 4 1 3 77 10
 ```
 
-#### Training the model
+#### Training
 
-#### Testing the model
+To train the model yourself, you have to run the following script:
+
+```
+python3 train.py
+```
+
+#### Testing
+
+If you trained the model 
 
 ### 2. Union model: ###
 
