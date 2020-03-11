@@ -62,6 +62,20 @@ If you trained the model yourself, you can use the following script to test your
 python3 test.py
 ```
 
+To use the pretrained models, you have to pass the model directory to test.py. The pretrained models are available in the pretrained_models folder. For mnist, the model is trained using both protocols, for all classes. For fashion_mnist, the model is trained using the first protocol for all classes. Finally, for coil100, all the 30 trained models (as explained in the paper) are available in the corresponding folder.
+
+Here are examples for all the three datasets:
+
+```
+python3 test.py ./pretrained_models/mnist_pretrained/p2/8
+```
+```
+python3 test.py ./pretrained_models/fashion_mnist_pretrained/2
+```
+```
+python3 test.py ./pretrained_models/fashion_mnist_pretrained/30
+```
+
 ### 2. Union model: ###
 
 - At first, you need to complete the submit.sh according to your HPC setting to submit a sbatch file.
