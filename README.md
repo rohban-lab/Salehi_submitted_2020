@@ -44,7 +44,7 @@ python3 prepare.py mnist p1 0.5 8
 python3 prepare.py fashion_mnist p2 2
 ```
 
-For the coil100 dataset, only the first protocol is available. After passing the dataset name, you have to pass the anomaly percentage. Next, you pass the number of normal classes $n\in \{1,4,7\}$. After that, $n$ class numbers are passed.
+For the coil100 dataset, only the first protocol is available. After passing the dataset name, you have to pass the anomaly percentage. Next, you pass the number of normal classes <img src="https://render.githubusercontent.com/render/math?math=n\in \{1,4,7\}">. After that, <img src="https://render.githubusercontent.com/render/math?math=n"> class numbers are passed.
 
 Here is an example for the coil100 dataset:
 
