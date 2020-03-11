@@ -48,7 +48,7 @@ python3 prepare.py 0.25 4 1 3 77 10
 
 #### Training
 
-To train the model yourself, you have to run the following script:
+To train the model by yourself, you have to run the following script:
 
 ```
 python3 train.py
