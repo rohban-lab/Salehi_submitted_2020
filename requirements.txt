@@ -1,0 +1,8 @@
+numpy
+tensorflow
+keras
+opencv
+torch
+tensorflow-datasets
+matplotlib
+sklearn
