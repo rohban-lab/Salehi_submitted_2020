@@ -29,36 +29,32 @@ The aim of the project is to learn a robust representation from normal samples i
 
 Having cloned the repository, you can reproduce our results:
 
-### 1. L-inf model: ###
+### 1. L-inf model:
 
-the script can be run using the following arguments:
+#### Preparing the data
 
-```
-optional arguments:
-  -h, --help            show this help message and exit
-  -g, --gpu_id          determines gpu id
-  -d, --data_path       path to dataset
-  -c, --checkpoint_path the address in which the model is going to be saved.
-  -n, --class_number    choose normal class
-  -l, --learning_rate   learning rate
-  -s, --num_steps       number of epochs
-  -b, --batch_size      mini batch size
-  -k, --coef            setting coeficient in error function to control the effect of adverserial attack
-  -e, --kernel_size     kernel size
-  -t, --stride          kernel stride
-```
+At first, run prepare.py to prepare the data. The first argument to be passed is the dataset name. You may choose between fashion_mnist, mnist, and coil100.  For mnist and fashion_mnist, the next argument is the chosen protocol to prepare the data. For this argument you may choose betwen p1 and p2. If p2 is chosen, the next argument is the normal class number. Otherwise, the next argument is the anomaly percentage. Then you have to pass the class number.
 
-Having decided about the arguments, the script can be run like below:
+Here are two examples for mnist and fashion_mnist datasets:
 
 ```
-python v1.py --gpu_id "1" -l 0.0001
+python3 prepare.py mnist p1 0.5 8
+```
+```
+python3 prepare.py fashion_mnist p2 2
 ```
 
-Note: To submit a task on HPC, all you need to do is to call run.sh. It will be run v1.py using HPC's GPU.
+For the coil100 dataset, only the first protocol is available. After passing the dataset name, you have to pass the anomaly percentage. Next, you pass the number of normal classes $n\in \{1,4,7\}$. After that, $n$ class numbers are passed.
+
+Here is an example for the coil100 dataset:
 
 ```
-qsub run.sh
+python3 prepare.py 0.25 4 1 3 77 10
 ```
+
+#### Training the model
+
+#### Testing the model
 
 ### 2. Union model: ###
 
