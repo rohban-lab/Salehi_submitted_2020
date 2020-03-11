@@ -31,7 +31,7 @@ Having cloned the repository, you can reproduce our results:
 
 ### 1. L-inf model:
 
-If you want to use the pretrained models, 
+If you want to use the pretrained models, skip to [this section](https://github.com/abnormalDetection/Enhanced-Abnormal-Detection-Using-Adverserial-Attacks/blob/master/README.md#testing).
 
 #### Preparing the data
 
@@ -64,7 +64,9 @@ python3 train.py
 
 #### Testing
 
-If you trained the model 
+If you trained the model yourself, you can use the following script to test your model:
+
+
 
 ### 2. Union model: ###
 
