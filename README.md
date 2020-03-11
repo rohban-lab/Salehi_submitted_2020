@@ -6,7 +6,7 @@ This repository contains code to reproduce the main experiments of our paper "AR
 Also, you can find our pre-trained models and our final results.
 
 ![ARAE vs DAE](/MNIST-union/images/ARAEvsDAE.png)
-*Unlike  DAE,  ARAE  that  is  trained  on  the  normal  class,  which  is  thedigit 8, reconstructs a normal instance when it is given an anomalous digit, from the class 1*
+*Unlike  DAE,  ARAE  that  is  trained  on  the  normal  class,  which  is  the digit 8, reconstructs a normal instance when it is given an anomalous digit, from the class 1.*
 
 <!--
 Here, we can provide the link to our paper, and we can write authors list.
