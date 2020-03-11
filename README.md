@@ -17,23 +17,17 @@ This repository belongs to abnormal detection group in Sharif university of Tech
 <!--
 The aim of the project is to learn a robust representation from normal samples in order to detect abnormality patterns. This work is mainly inspired by these papers, ["Adversarial examples for generative models"](https://arxiv.org/pdf/1702.06832.pdf) and ["Adversarial Manipulation of Deep Representations"](https://arxiv.org/pdf/1511.05122.pdf). More specifically, a new objective function is introduced by which an Autoencoder is trained so that it can both minimize pixel-wise error and learn a robust representation where it can capture variants of a sample in latesnt space. -->
 
-
-## Prerequisites
-
-* Tensorflow >= 1.15.0
-* Keras >= 2.2.4
-* torch >= 1.4
-
-
 ## Running the code
 
 Having cloned the repository, you can reproduce our results:
 
 ### 1. L-inf model:
 
+If you want to use the pre-trained models, skip to [this section](https://github.com/abnormalDetection/Enhanced-Abnormal-Detection-Using-Adverserial-Attacks/blob/master/README.md#testing).
+
 #### Preparing the data
 
-At first, run prepare.py to prepare the data. The first argument to be passed is the dataset name. You may choose between fashion_mnist, mnist, and coil100.  For mnist and fashion_mnist, the next argument is the chosen protocol to prepare the data. For this argument you may choose betwen p1 and p2. If p2 is chosen, the next argument is the normal class number. Otherwise, the next argument is the anomaly percentage. Then you have to pass the class number.
+At first, run prepare.py to prepare the data. The first argument to be passed is the dataset name. You may choose between fashion_mnist, mnist, and coil100.  For mnist and fashion_mnist, the next argument is the chosen protocol to prepare the data. For this argument, you may choose between p1 and p2. If p2 is chosen, the next argument is the normal class number. Otherwise, the next argument is the anomaly percentage. Then you have to pass the class number.
 
 Here are two examples for mnist and fashion_mnist datasets:
 
@@ -44,7 +38,7 @@ python3 prepare.py mnist p1 0.5 8
 python3 prepare.py fashion_mnist p2 2
 ```
 
-For the coil100 dataset, only the first protocol is available. After passing the dataset name, you have to pass the anomaly percentage. Next, you pass the number of normal classes $n\in \{1,4,7\}$. After that, $n$ class numbers are passed.
+For the coil100 dataset, only the first protocol is available. After passing the dataset name, you have to pass the anomaly percentage. Next, you pass the number of normal classes. After that, the class numbers are passed.
 
 Here is an example for the coil100 dataset:
 
@@ -52,11 +46,37 @@ Here is an example for the coil100 dataset:
 python3 prepare.py 0.25 4 1 3 77 10
 ```
 
-#### Training the model
+#### Training
 
-#### Testing the model
+To train the model yourself, you have to run the following script:
 
-### 2. Union model: ###
+```
+python3 train.py
+```
+
+#### Testing
+
+If you trained the model yourself, you can use the following script to test your model:
+
+```
+python3 test.py
+```
+
+To use the pre-trained models, you have to pass the model directory to test.py. The pre-trained models are available in the pretrained_models folder. For mnist, the model is trained using both protocols, for all classes. For fashion_mnist, the model is trained using the first protocol for all classes. Finally, for coil100, all the 30 trained models (as explained in the paper) are available in the corresponding folder.
+
+Here are examples for all the three datasets:
+
+```
+python3 test.py ./pretrained_models/mnist_pretrained/p2/8
+```
+```
+python3 test.py ./pretrained_models/fashion_mnist_pretrained/2
+```
+```
+python3 test.py ./pretrained_models/fashion_mnist_pretrained/30
+```
+
+### 2. Union model:
 
 - At first, you need to complete the submit.sh according to your HPC setting to submit a sbatch file.
 - Then, you just need to run main.sh on the HPC, It will automatically run code.py for 10 classes.
