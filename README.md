@@ -23,11 +23,11 @@ Having cloned the repository, you can reproduce our results:
 
 ### 1. L-inf model:
 
-If you want to use the pretrained models, skip to [this section](https://github.com/abnormalDetection/Enhanced-Abnormal-Detection-Using-Adverserial-Attacks/blob/master/README.md#testing).
+If you want to use the pre-trained models, skip to [this section](https://github.com/abnormalDetection/Enhanced-Abnormal-Detection-Using-Adverserial-Attacks/blob/master/README.md#testing).
 
 #### Preparing the data
 
-At first, run prepare.py to prepare the data. The first argument to be passed is the dataset name. You may choose between fashion_mnist, mnist, and coil100.  For mnist and fashion_mnist, the next argument is the chosen protocol to prepare the data. For this argument you may choose betwen p1 and p2. If p2 is chosen, the next argument is the normal class number. Otherwise, the next argument is the anomaly percentage. Then you have to pass the class number.
+At first, run prepare.py to prepare the data. The first argument to be passed is the dataset name. You may choose between fashion_mnist, mnist, and coil100.  For mnist and fashion_mnist, the next argument is the chosen protocol to prepare the data. For this argument, you may choose between p1 and p2. If p2 is chosen, the next argument is the normal class number. Otherwise, the next argument is the anomaly percentage. Then you have to pass the class number.
 
 Here are two examples for mnist and fashion_mnist datasets:
 
@@ -62,7 +62,7 @@ If you trained the model yourself, you can use the following script to test your
 python3 test.py
 ```
 
-To use the pretrained models, you have to pass the model directory to test.py. The pretrained models are available in the pretrained_models folder. For mnist, the model is trained using both protocols, for all classes. For fashion_mnist, the model is trained using the first protocol for all classes. Finally, for coil100, all the 30 trained models (as explained in the paper) are available in the corresponding folder.
+To use the pre-trained models, you have to pass the model directory to test.py. The pre-trained models are available in the pretrained_models folder. For mnist, the model is trained using both protocols, for all classes. For fashion_mnist, the model is trained using the first protocol for all classes. Finally, for coil100, all the 30 trained models (as explained in the paper) are available in the corresponding folder.
 
 Here are examples for all the three datasets:
 
@@ -76,7 +76,7 @@ python3 test.py ./pretrained_models/fashion_mnist_pretrained/2
 python3 test.py ./pretrained_models/fashion_mnist_pretrained/30
 ```
 
-### 2. Union model: ###
+### 2. Union model:
 
 - At first, you need to complete the submit.sh according to your HPC setting to submit a sbatch file.
 - Then, you just need to run main.sh on the HPC, It will automatically run code.py for 10 classes.
