@@ -23,7 +23,7 @@ Having cloned the repository, you can reproduce our results:
 
 ### 1. L-inf model:
 
-If you want to use the pre-trained models, skip to [this section](https://github.com/abnormalDetection/Enhanced-Abnormal-Detection-Using-Adverserial-Attacks/blob/master/README.md#testing).
+If you want to use the pre-trained models, skip to [this section](https://github.com/abnormalDetection/Enhanced-Abnormal-Detection-Using-Adverserial-Attacks#testing).
 
 #### Preparing the data
 
