@@ -17,14 +17,6 @@ This repository belongs to abnormal detection group in Sharif university of Tech
 <!--
 The aim of the project is to learn a robust representation from normal samples in order to detect abnormality patterns. This work is mainly inspired by these papers, ["Adversarial examples for generative models"](https://arxiv.org/pdf/1702.06832.pdf) and ["Adversarial Manipulation of Deep Representations"](https://arxiv.org/pdf/1511.05122.pdf). More specifically, a new objective function is introduced by which an Autoencoder is trained so that it can both minimize pixel-wise error and learn a robust representation where it can capture variants of a sample in latesnt space. -->
 
-
-## Prerequisites
-
-* Tensorflow >= 1.15.0
-* Keras >= 2.2.4
-* torch >= 1.4
-
-
 ## Running the code
 
 Having cloned the repository, you can reproduce our results:
@@ -66,7 +58,9 @@ python3 train.py
 
 If you trained the model yourself, you can use the following script to test your model:
 
-
+```
+python3 test.py
+```
 
 ### 2. Union model: ###
 
