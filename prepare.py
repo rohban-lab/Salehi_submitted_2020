@@ -6,23 +6,32 @@ import tensorflow_datasets as tfds
 tfds.disable_progress_bar()
 
 
-def protocol1(dataset, class_numbers, anomaly_percentage=0.5):
+def protocol1(dataset_name, class_numbers, anomaly_percentage=0.5):
+    class_numbers = [bytes('obj' + class_number, 'utf8') for class_number in class_numbers]
     # Loading and shuffling the dataset
     # Train and test splits are merged
-    if dataset == 'coil100':
-        dataset = np.array(list(tfds.as_numpy(tfds.load(name=dataset, split=['train'])[0])))
+    if dataset_name == 'coil100':
+        dataset = np.array(list(tfds.as_numpy(tfds.load(name=dataset_name, split=['train'])[0])))
     else:
-        dataset = np.array(list(tfds.as_numpy(tfds.load(name=dataset, split=['train+test'])[0])))
+        dataset = np.array(list(tfds.as_numpy(tfds.load(name=dataset_name, split=['train+test'])[0])))
     random.shuffle(dataset)
 
     # Preparing the training data using 80% of the normal samples
-    normal_samples = np.array(
-        [cv2.resize(x['image'], (32, 32), interpolation=cv2.INTER_AREA).flatten() / 255.0 for x in dataset if
-         x['label'] in class_numbers])
-    abnormal_samples = np.array(
-        [cv2.resize(x['image'], (32, 32), interpolation=cv2.INTER_AREA).flatten() / 255.0 for x in dataset if
-         x['label'] not in class_numbers])
-    train_images = normal_samples[:int(4 * len(normal_samples) / 5)]
+    if dataset_name == 'coil100':
+        normal_samples = np.array(
+            [cv2.resize(x['image'], (32, 32), interpolation=cv2.INTER_AREA).flatten() / 255.0 for x in dataset if
+             x['object_id'] in class_numbers])
+        abnormal_samples = np.array(
+            [cv2.resize(x['image'], (32, 32), interpolation=cv2.INTER_AREA).flatten() / 255.0 for x in dataset if
+             x['object_id'] not in class_numbers])
+        train_images = normal_samples[:int(4 * len(normal_samples) / 5)]
+    else:
+        normal_samples = np.array(
+            [x['image'].flatten() / 255.0 for x in dataset if x['label'] in class_numbers])
+        abnormal_samples = np.array(
+            [x['image'].flatten() / 255.0 for x in dataset if x['label'] not in class_numbers])
+        validation_normal_samples = normal_samples[int(3 * len(normal_samples) / 5):int(4 * len(normal_samples) / 5)]
+        train_images = normal_samples[:int(3 * len(normal_samples) / 5)]
 
     # Preparing the test data
     # A set of abnormal samples is prepared in the case a validation set is needed
@@ -42,17 +51,23 @@ def protocol1(dataset, class_numbers, anomaly_percentage=0.5):
 
     test_images = np.concatenate((test_normal_samples, test_abnormal_samples))
     test_labels = np.concatenate((np.zeros(normal_count, dtype=int), np.ones(abnormal_count, dtype=int)))
+    if dataset_name != 'coil100':
+        validation_normal_samples = validation_normal_samples[:normal_count]
+        validation_images = np.concatenate((validation_normal_samples, validation_abnormal_samples))
+        validation_labels = np.concatenate((np.zeros(normal_count, dtype=int), np.ones(abnormal_count, dtype=int)))
 
     # Saving the data
     np.save('data/train_images', train_images)
     np.save('data/test_images', test_images)
     np.save('data/test_labels', test_labels)
-    np.save('data/validation_abnormal_samples', validation_abnormal_samples)
+    if dataset_name != 'coil100':
+        np.save('data/validation_images', validation_images)
+        np.save('data/validation_labels', validation_labels)
 
 
-def protocol2(dataset, class_number):
+def protocol2(dataset_name, class_number):
     # Loading the dataset and preparing the training data
-    train, test = np.array(list(tfds.as_numpy(tfds.load(name=dataset, split=['train', 'test']))))
+    train, test = np.array(list(tfds.as_numpy(tfds.load(name=dataset_name, split=['train', 'test']))))
     train_images = np.array([x['image'].flatten() / 255.0 for x in train if x == class_number])
 
     # Preparing the test data
@@ -72,6 +87,7 @@ if __name__ == '__main__':
             protocol1(args[1], [int(args[4])], float(args[3]))
         elif args[2] == 'p2':
             protocol2(args[1], int(args[3]))
+        np.save('data/meta', np.array([args[1], args[2]]))
     elif args[1] == 'coil100':
-        protocol1(args[1], list(map(int, args[4:4 + int(args[3])])), float(args[2]))
-    np.save('data/meta', np.array([args[1]]))
+        protocol1(args[1], args[4:4 + int(args[3])], float(args[2]))
+        np.save('data/meta', np.array([args[1]]))
