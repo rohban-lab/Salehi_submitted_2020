@@ -7,16 +7,16 @@ tfds.disable_progress_bar()
 
 
 def protocol1(dataset_name, class_numbers, anomaly_percentage=0.5):
-    class_numbers = [bytes('obj' + class_number, 'utf8') for class_number in class_numbers]
     # Loading and shuffling the dataset
     # Train and test splits are merged
     if dataset_name == 'coil100':
-        dataset = np.array(list(tfds.as_numpy(tfds.load(name=dataset_name, split=['train'])[0])))
+        class_numbers = [bytes('obj' + class_number, 'utf8') for class_number in class_numbers]
+        dataset = np.array(list(tfds.as_numpy(tfds.load(name=dataset_name, split='train'))))
     else:
-        dataset = np.array(list(tfds.as_numpy(tfds.load(name=dataset_name, split=['train+test'])[0])))
+        dataset = np.array(list(tfds.as_numpy(tfds.load(name=dataset_name, split='train+test'))))
     random.shuffle(dataset)
 
-    # Preparing the training data using 80% of the normal samples
+    # Preparing the training and validation data using 80% of the normal samples
     if dataset_name == 'coil100':
         normal_samples = np.array(
             [cv2.resize(x['image'], (32, 32), interpolation=cv2.INTER_AREA).flatten() / 255.0 for x in dataset if
@@ -33,8 +33,7 @@ def protocol1(dataset_name, class_numbers, anomaly_percentage=0.5):
         validation_normal_samples = normal_samples[int(3 * len(normal_samples) / 5):int(4 * len(normal_samples) / 5)]
         train_images = normal_samples[:int(3 * len(normal_samples) / 5)]
 
-    # Preparing the test data
-    # A set of abnormal samples is prepared in the case a validation set is needed
+    # Preparing the test and validation data
     test_normal_samples = normal_samples[int(4 * len(normal_samples) / 5):]
     normal_count = len(test_normal_samples)
     abnormal_count = int(normal_count * anomaly_percentage / (1 - anomaly_percentage))
@@ -71,8 +70,8 @@ def protocol2(dataset_name, class_number):
     train_images = np.array([x['image'].flatten() / 255.0 for x in train if x == class_number])
 
     # Preparing the test data
-    test_images = np.array([x['image'].flatten() / 255.0 for x in train])
-    test_labels = np.array([int(x['label'] != class_number) for x in train])
+    test_images = np.array([x['image'].flatten() / 255.0 for x in test])
+    test_labels = np.array([int(x['label'] != class_number) for x in test])
 
     # Saving the data
     np.save('data/train_images', train_images)
