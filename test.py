@@ -52,7 +52,7 @@ def get_f1(threshold, diff, labels):
 
 def find_f1(model, test_images, test_labels, validation, *args):
     if validation:
-        # Finding the best threshold using validation set
+        # Finding the best threshold using the validation set
         y_pred = model.predict(np.concatenate((args[0], args[0]), axis=-1))
         diff = y_pred - args[0]
         diff = np.sum(diff ** 2, axis=1)
@@ -121,5 +121,5 @@ if __name__ == '__main__':
         elif protocol == 'p2':
             compute_auc(model, test_images, test_labels)
     elif dataset == 'coil100':
-        find_f1(model, test_images, test_labels, False, False, )
+        find_f1(model, test_images, test_labels, False)
         compute_auc(model, test_images, test_labels)
