@@ -23,7 +23,7 @@ Having cloned the repository, you can reproduce our results:
 
 ### 1. L-inf model:
 
-If you want to use the pre-trained models, skip to [this section](https://github.com/abnormalDetection/Enhanced-Abnormal-Detection-Using-Adverserial-Attacks#testing).
+If you want to use the pre-trained models, skip to [this section](https://github.com/rohban-lab/Salehi_submitted_2020#testing).
 
 #### Preparing the data
 
@@ -67,13 +67,13 @@ To use the pre-trained models, you have to pass the model directory to test.py. 
 Here are examples for all the three datasets:
 
 ```
-python3 test.py ./pretrained_models/mnist_pretrained/p2/8
+python3 test.py ./pretrained_models/mnist_pretrained/p2/8/
 ```
 ```
-python3 test.py ./pretrained_models/fashion_mnist_pretrained/2
+python3 test.py ./pretrained_models/fashion_mnist_pretrained/2/
 ```
 ```
-python3 test.py ./pretrained_models/fashion_mnist_pretrained/30
+python3 test.py ./pretrained_models/fashion_mnist_pretrained/30/
 ```
 
 ### 2. Union model:
