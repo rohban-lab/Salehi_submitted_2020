@@ -1,4 +1,5 @@
 import sys
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
@@ -120,6 +121,7 @@ def find_f1(model, test_images, test_labels, validation, *args):
 
 
 if __name__ == '__main__':
+    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
     args = sys.argv
     model_directory = 'model/'
     if len(args) > 1:
@@ -136,7 +138,10 @@ if __name__ == '__main__':
 
     # Loading the model
     model = autoencoder(test_images.shape[1], 0.1)
-    model.load_weights(model_directory + 'weights.hdf5')
+    if dataset == 'fashion_mnist' and len(args) > 1 and int(model_directory.split('/')[3]) != 2:
+        model.load_weights(model_directory + 'weights.h5')
+    else:
+        model.load_weights(model_directory + 'weights.hdf5')
 
     # Computing AUC and F1 score
     if dataset == 'fashion_mnist' or dataset == 'mnist':
