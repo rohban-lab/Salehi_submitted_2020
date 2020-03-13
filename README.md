@@ -43,7 +43,7 @@ For the coil100 dataset, only the first protocol is available. After passing the
 Here is an example for the coil100 dataset:
 
 ```
-python3 prepare.py 0.25 4 1 3 77 10
+python3 prepare.py coil100 0.25 4 1 3 77 10
 ```
 
 #### Training
