@@ -70,6 +70,9 @@ Here are examples for all the three datasets:
 python3 test.py ./pretrained_models/mnist_pretrained/p2/8/
 ```
 ```
+python3 test.py ./pretrained_models/mnist_pretrained/p1/5/ 0.5
+```
+```
 python3 test.py ./pretrained_models/fashion_mnist_pretrained/2/
 ```
 ```
