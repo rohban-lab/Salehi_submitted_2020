@@ -138,7 +138,7 @@ if __name__ == '__main__':
 
     # Loading the model
     model = autoencoder(test_images.shape[1], 0.1)
-    if dataset == 'fashion_mnist' and len(args) > 1 and int(model_directory.split('/')[3]) != 2:
+    if dataset == 'fashion_mnist' and len(args) > 1 and int(model_directory.split('/')[3]) != 9:
         model.load_weights(model_directory + 'weights.h5')
     else:
         model.load_weights(model_directory + 'weights.hdf5')

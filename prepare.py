@@ -63,7 +63,7 @@ def protocol1(dataset_name, class_numbers, anomaly_percentage=0.5):
     np.save('data/test_images', test_images)
     np.save('data/test_labels', test_labels)
     if dataset_name != 'coil100':
-        np.save('validation_images', validation_images)
+        np.save('data/validation_images', validation_images)
         np.save('data/validation_labels', validation_labels)
     np.save('data/meta', np.array([dataset_name, 'p1']))
 
