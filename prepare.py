@@ -70,7 +70,7 @@ def protocol2(dataset_name, class_number):
     train, test = tfds.load(name=dataset_name, split=['train', 'test'])
     train = np.array(list(tfds.as_numpy(train)))
     test = np.array(list(tfds.as_numpy(test)))
-    train_images = np.array([x['image'].flatten() / 255.0 for x in train if x == class_number])
+    train_images = np.array([x['image'].flatten() / 255.0 for x in train if x['label'] == class_number])
 
     # Preparing the test data
     test_images = np.array([x['image'].flatten() / 255.0 for x in test])
