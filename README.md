@@ -73,7 +73,7 @@ python3 test.py ./pretrained_models/mnist_pretrained/p2/8/
 python3 test.py ./pretrained_models/fashion_mnist_pretrained/2/
 ```
 ```
-python3 test.py ./pretrained_models/fashion_mnist_pretrained/30/
+python3 test.py ./pretrained_models/coil100_pretrained/30/
 ```
 
 ### 2. Union model:
