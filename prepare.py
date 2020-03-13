@@ -53,7 +53,10 @@ def protocol1(dataset_name, class_numbers, anomaly_percentage=0.5):
     if dataset_name != 'coil100':
         validation_normal_samples = validation_normal_samples[:normal_count]
         validation_images = np.concatenate((validation_normal_samples, validation_abnormal_samples))
-        validation_labels = np.concatenate((np.zeros(normal_count, dtype=int), np.ones(abnormal_count, dtype=int)))
+        validation_labels = np.concatenate((np.ones(normal_count, dtype=int), np.zeros(abnormal_count, dtype=int)))
+        test_labels = np.concatenate((np.ones(normal_count, dtype=int), np.zeros(abnormal_count, dtype=int)))
+    else:
+        test_labels = np.concatenate((np.zeros(normal_count, dtype=int), np.ones(abnormal_count, dtype=int)))
 
     # Saving the data
     np.save('data/train_images', train_images)

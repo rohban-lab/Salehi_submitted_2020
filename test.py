@@ -27,11 +27,13 @@ def prepare_pretrained_model(directory, *args):
         protocol1('coil100', class_numbers, anomaly_percentage)
 
 
-def compute_auc(model, test_images, test_labels):
+def compute_auc(model, test_images, test_labels, normal_class):
     # Computing reconstruction loss
     y_pred = model.predict(np.concatenate((test_images, test_images), axis=-1))
     diff = y_pred - test_images
     diff = np.sum(diff ** 2, axis=1)
+    if normal_class == 1:
+        diff = -diff
 
     # Computing AUC
     fpr, tpr, thresholds = roc_curve(test_labels, diff, 1)
@@ -46,8 +48,11 @@ def compute_auc(model, test_images, test_labels):
     plt.show()
 
 
-def get_f1(threshold, diff, labels):
-    pred = [int(d > threshold) for d in diff]
+def get_f1(threshold, diff, labels, normal_class):
+    if normal_class == 0:
+        pred = [int(d > threshold) for d in diff]
+    else:
+        pred = [int(d < threshold) for d in diff]
     true_positive = 0
     false_positive = 0
     true_negative = 0
@@ -84,7 +89,7 @@ def find_f1(model, test_images, test_labels, validation, *args):
         f1 = 0
         best_threshold = 0
         for threshold in np.arange(tmin, tmax, 0.1):
-            score = get_f1(threshold, diff, args[1])
+            score = get_f1(threshold, diff, args[1], 1)
             if score > f1:
                 f1 = score
                 best_threshold = threshold
@@ -95,7 +100,7 @@ def find_f1(model, test_images, test_labels, validation, *args):
         diff = np.sum(diff ** 2, axis=1)
 
         # Compuring F1 score
-        f1 = get_f1(best_threshold, diff, test_labels)
+        f1 = get_f1(best_threshold, diff, test_labels, 1)
         print('F1: ' + str(f1))
     else:
         # Computing reconstruction loss
@@ -108,7 +113,7 @@ def find_f1(model, test_images, test_labels, validation, *args):
         tmax = max(diff) + 1
         f1 = 0
         for threshold in np.arange(tmin, tmax, 0.1):
-            score = get_f1(threshold, diff, test_labels)
+            score = get_f1(threshold, diff, test_labels, 0)
             if score > f1:
                 f1 = score
         print('F1: ' + str(f1))
@@ -139,9 +144,9 @@ if __name__ == '__main__':
             validation_images = np.load('data/validation_images.npy')
             validation_labels = np.load('data/validation_labels.npy')
             find_f1(model, test_images, test_labels, True, validation_images, validation_labels)
-            compute_auc(model, test_images, test_labels)
+            compute_auc(model, test_images, test_labels, 1)
         elif protocol == 'p2':
-            compute_auc(model, test_images, test_labels)
+            compute_auc(model, test_images, test_labels, 0)
     elif dataset == 'coil100':
         find_f1(model, test_images, test_labels, False)
-        compute_auc(model, test_images, test_labels)
+        compute_auc(model, test_images, test_labels, 0)
