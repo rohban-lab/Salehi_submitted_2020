@@ -62,7 +62,7 @@ If you trained the model yourself, you can use the following script to test your
 python3 test.py
 ```
 
-To use the pre-trained models, you have to pass the model directory to test.py. The pre-trained models are available in the pretrained_models folder. For mnist, the model is trained using both protocols, for all classes. For fashion_mnist, the model is trained using the first protocol for all classes. Finally, for coil100, all the 30 trained models (as explained in the paper) are available in the corresponding folder.
+To use the pre-trained models, you have to pass the model directory to test.py. The pre-trained models are available in the pretrained_models folder. For mnist, the model is trained using both protocols, for all classes. For fashion_mnist, the model is trained using the second protocol for all classes. Finally, for coil100, all the 30 trained models (as explained in the paper) are available in the corresponding folder.
 
 Here are examples for all the three datasets:
 
