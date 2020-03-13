@@ -6,7 +6,7 @@ import tensorflow_datasets as tfds
 tfds.disable_progress_bar()
 
 
-def protocol1(dataset_name, class_numbers, anomaly_percentage=0.5):
+def protocol1(data_directory, dataset_name, class_numbers, anomaly_percentage=0.5):
     # Loading and shuffling the dataset
     # Train and test splits are merged
     if dataset_name == 'coil100':
@@ -56,15 +56,16 @@ def protocol1(dataset_name, class_numbers, anomaly_percentage=0.5):
         validation_labels = np.concatenate((np.zeros(normal_count, dtype=int), np.ones(abnormal_count, dtype=int)))
 
     # Saving the data
-    np.save('data/train_images', train_images)
-    np.save('data/test_images', test_images)
-    np.save('data/test_labels', test_labels)
+    np.save(data_directory + 'train_images', train_images)
+    np.save(data_directory + 'test_images', test_images)
+    np.save(data_directory + 'test_labels', test_labels)
     if dataset_name != 'coil100':
-        np.save('data/validation_images', validation_images)
-        np.save('data/validation_labels', validation_labels)
+        np.save(data_directory + 'validation_images', validation_images)
+        np.save(data_directory + 'validation_labels', validation_labels)
+    np.save(data_directory + 'meta', np.array([dataset_name, 'p1']))
 
 
-def protocol2(dataset_name, class_number):
+def protocol2(data_directory, dataset_name, class_number):
     # Loading the dataset and preparing the training data
     train, test = np.array(list(tfds.as_numpy(tfds.load(name=dataset_name, split=['train', 'test']))))
     train_images = np.array([x['image'].flatten() / 255.0 for x in train if x == class_number])
@@ -74,19 +75,18 @@ def protocol2(dataset_name, class_number):
     test_labels = np.array([int(x['label'] != class_number) for x in test])
 
     # Saving the data
-    np.save('data/train_images', train_images)
-    np.save('data/test_images', test_images)
-    np.save('data/test_labels', test_labels)
+    np.save(data_directory + 'train_images', train_images)
+    np.save(data_directory + 'test_images', test_images)
+    np.save(data_directory + 'test_labels', test_labels)
+    np.save(data_directory + 'meta', np.array([dataset_name, 'p2']))
 
 
 if __name__ == '__main__':
     args = sys.argv
     if args[1] == 'mnist' or args[1] == 'fashion_mnist':
         if args[2] == 'p1':
-            protocol1(args[1], [int(args[4])], float(args[3]))
+            protocol1('data/', args[1], [int(args[4])], float(args[3]))
         elif args[2] == 'p2':
-            protocol2(args[1], int(args[3]))
-        np.save('data/meta', np.array([args[1], args[2]]))
+            protocol2('data/', args[1], int(args[3]))
     elif args[1] == 'coil100':
-        protocol1(args[1], args[4:4 + int(args[3])], float(args[2]))
-        np.save('data/meta', np.array([args[1]]))
+        protocol1('data/', args[1], args[4:4 + int(args[3])], float(args[2]))

@@ -11,11 +11,11 @@ def prepare_pretrained_model(directory, *args):
     dir_split = directory.split('/')
     if dir_split[2] == 'mnist_pretrained':
         if dir_split[3] == 'p1':
-            protocol1('mnist', [int(dir_split[4])], float(args[0]))
+            protocol1(directory, 'mnist', [int(dir_split[4])], float(args[0]))
         elif dir_split[3] == 'p2':
-            protocol2('mnist', int(dir_split[4]))
+            protocol2(directory, 'mnist', int(dir_split[4]))
     elif dir_split[2] == 'fashion_mnist_pretrained':
-        protocol2('fashion_mnist', int(dir_split[3]))
+        protocol2(directory, 'fashion_mnist', int(dir_split[3]))
     elif dir_split[2] == 'coil100_pretrained':
         if dir_split[3] == '1':
             anomaly_percentage = 0.5
@@ -24,7 +24,7 @@ def prepare_pretrained_model(directory, *args):
         elif dir_split[3] == '7':
             anomaly_percentage = 0.15
         class_numbers = list(np.load(directory + 'class.npy'))
-        protocol1('coil100', class_numbers, anomaly_percentage)
+        protocol1(directory, 'coil100', class_numbers, anomaly_percentage)
 
 
 def compute_auc(model, test_images, test_labels):
@@ -127,8 +127,7 @@ if __name__ == '__main__':
             prepare_pretrained_model(args[1], args[2])
 
     # Loading the data
-    meta = np.load(data_directoy + 'meta.npy')
-    dataset = meta[0]
+    dataset, protocol = np.load(data_directoy + 'meta.npy')
     test_images = np.load(data_directoy + 'test_images.npy')
     test_labels = np.load(data_directoy + 'test_labels.npy')
 
@@ -138,7 +137,6 @@ if __name__ == '__main__':
 
     # Computing AUC and F1 score
     if dataset == 'fashion_mnist' or dataset == 'mnist':
-        protocol = meta[1]
         if protocol == 'p1':
             validation_images = np.load(data_directoy + 'validation_images.npy')
             validation_labels = np.load(data_directoy + 'validation_labels.npy')
