@@ -3,6 +3,28 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, auc
 from train import autoencoder
+from prepare import protocol1, protocol2
+
+
+def prepare_pretrained_model(directory, *args):
+    # Preparing the data for a pre-trained model
+    dir_split = directory.split('/')
+    if dir_split[2] == 'mnist_pretrained':
+        if dir_split[3] == 'p1':
+            protocol1('mnist', [int(dir_split[4])], float(args[0]))
+        elif dir_split[3] == 'p2':
+            protocol2('mnist', int(dir_split[4]))
+    elif dir_split[2] == 'fashion_mnist_pretrained':
+        protocol2('fashion_mnist', int(dir_split[3]))
+    elif dir_split[2] == 'coil100_pretrained':
+        if dir_split[3] == '1':
+            anomaly_percentage = 0.5
+        elif dir_split[3] == '4':
+            anomaly_percentage = 0.25
+        elif dir_split[3] == '7':
+            anomaly_percentage = 0.15
+        class_numbers = list(np.load(directory + 'class.npy'))
+        protocol1('coil100', class_numbers, anomaly_percentage)
 
 
 def compute_auc(model, test_images, test_labels):
@@ -99,6 +121,10 @@ if __name__ == '__main__':
     if len(args) > 1:
         model_directory = args[1]
         data_directoy = args[1]
+        if len(args) == 2:
+            prepare_pretrained_model(args[1])
+        else:
+            prepare_pretrained_model(args[1], args[2])
 
     # Loading the data
     meta = np.load(data_directoy + 'meta.npy')
