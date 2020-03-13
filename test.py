@@ -11,11 +11,11 @@ def prepare_pretrained_model(directory, *args):
     dir_split = directory.split('/')
     if dir_split[2] == 'mnist_pretrained':
         if dir_split[3] == 'p1':
-            protocol1(directory, 'mnist', [int(dir_split[4])], float(args[0]))
+            protocol1('mnist', [int(dir_split[4])], float(args[0]))
         elif dir_split[3] == 'p2':
-            protocol2(directory, 'mnist', int(dir_split[4]))
+            protocol2('mnist', int(dir_split[4]))
     elif dir_split[2] == 'fashion_mnist_pretrained':
-        protocol2(directory, 'fashion_mnist', int(dir_split[3]))
+        protocol2('fashion_mnist', int(dir_split[3]))
     elif dir_split[2] == 'coil100_pretrained':
         if dir_split[3] == '1':
             anomaly_percentage = 0.5
@@ -24,7 +24,7 @@ def prepare_pretrained_model(directory, *args):
         elif dir_split[3] == '7':
             anomaly_percentage = 0.15
         class_numbers = list(np.load(directory + 'class.npy'))
-        protocol1(directory, 'coil100', class_numbers, anomaly_percentage)
+        protocol1('coil100', class_numbers, anomaly_percentage)
 
 
 def compute_auc(model, test_images, test_labels):
@@ -117,19 +117,17 @@ def find_f1(model, test_images, test_labels, validation, *args):
 if __name__ == '__main__':
     args = sys.argv
     model_directory = 'model/'
-    data_directoy = 'data/'
     if len(args) > 1:
         model_directory = args[1]
-        data_directoy = args[1]
         if len(args) == 2:
             prepare_pretrained_model(args[1])
         else:
             prepare_pretrained_model(args[1], args[2])
 
     # Loading the data
-    dataset, protocol = np.load(data_directoy + 'meta.npy')
-    test_images = np.load(data_directoy + 'test_images.npy')
-    test_labels = np.load(data_directoy + 'test_labels.npy')
+    dataset, protocol = np.load('data/meta.npy')
+    test_images = np.load('data/test_images.npy')
+    test_labels = np.load('data/test_labels.npy')
 
     # Loading the model
     model = autoencoder(test_images.shape[1], 0.1)
@@ -138,8 +136,8 @@ if __name__ == '__main__':
     # Computing AUC and F1 score
     if dataset == 'fashion_mnist' or dataset == 'mnist':
         if protocol == 'p1':
-            validation_images = np.load(data_directoy + 'validation_images.npy')
-            validation_labels = np.load(data_directoy + 'validation_labels.npy')
+            validation_images = np.load('data/validation_images.npy')
+            validation_labels = np.load('data/validation_labels.npy')
             find_f1(model, test_images, test_labels, True, validation_images, validation_labels)
             compute_auc(model, test_images, test_labels)
         elif protocol == 'p2':
