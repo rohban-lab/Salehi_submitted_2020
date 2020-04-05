@@ -1,7 +1,7 @@
 # ARAE: Adversarially Robust Training of Autoencoders Improves Novelty Detection
 
 
-This repository contains code to reproduce the main experiments of our paper "ARAE: Adversarially Robust Training of Autoencoders Improves Novelty Detection".
+This repository contains code to reproduce the main experiments of our paper [ARAE: Adversarially Robust Training of Autoencoders Improves Novelty Detection](https://arxiv.org/abs/2003.05669).
 
 Also, you can find our pre-trained models and our final results.
 
@@ -89,3 +89,11 @@ python3 test.py ./pretrained_models/coil100_pretrained/4/30/
 
 
 ## Citation
+    @misc{salehi2020arae,
+        title={ARAE: Adversarially Robust Training of Autoencoders Improves Novelty Detection},
+        author={Mohammadreza Salehi and Atrin Arya and Barbod Pajoum and Mohammad Otoofi and Amirreza Shaeiri and Mohammad          Hossein Rohban and Hamid R. Rabiee},
+        year={2020},
+        eprint={2003.05669},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV}
+    }
