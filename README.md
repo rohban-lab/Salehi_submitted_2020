@@ -1,9 +1,7 @@
 # ARAE: Adversarially Robust Training of Autoencoders Improves Novelty Detection
 
 
-This repository contains code to reproduce the main experiments of our paper [ARAE: Adversarially Robust Training of Autoencoders Improves Novelty Detection](https://arxiv.org/abs/2003.05669).
-
-Also, you can find our pre-trained models and our final results.
+This repository contains code to reproduce the main experiments of our paper [ARAE: Adversarially Robust Training of Autoencoders Improves Novelty Detection](https://arxiv.org/abs/2003.05669). Also, you can find our pre-trained models and our final results.
 
 ![ARAE vs DAE](/MNIST-union/images/ARAEvsDAE.png)
 *Unlike  DAE,  ARAE  that  is  trained  on  the  normal  class,  which  is  the digit 8, reconstructs a normal instance when it is given an anomalous digit, from the class 1.*
